@@ -9,7 +9,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 16px;
+        gap: 40px;
+
+        .hamburger{
+            display:none;
+        }
         
         .logo{
             color:$color-accent;
@@ -22,6 +26,8 @@
         .pages{
             display: flex;
             gap: 40px;
+            font-weight: 500;
+            color:$color-text;
         }
     }
 
@@ -53,6 +59,9 @@
         padding: 16px;
     }
 
+    .hamburger{
+        display: flex !important;
+    }
 
 
     .pages, .language, .currency{

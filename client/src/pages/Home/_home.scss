@@ -1,34 +1,43 @@
 .home{
     display: flex;
     flex-direction: column;
+    padding: 0px 55px;
+    gap:100px;
 
     .cover{
         background-image: url("../../../public/main-cover.jpg");
         background-size: cover;
-        padding: 16px 32px;
+        padding: 70px;
+        border-radius: 20px;
         display: flex;
         flex-direction: column;
         gap: 16px;
+        padding-bottom: 150px;
+        color:$color-text;
 
         h1{
-            font-size: $font-size-large;
+            font-size: $font-size-extra-large;
         }
 
         p{
             font-size: $font-size-base;
             line-height: 1.7em;
+            font-weight: 500;
+            width:40%;
         }
 
 
         .search{
             display: flex;
             position:relative;
+            bottom:-175px;
 
             input{
                 flex:1;
                 padding: 24px 64px;
                 border-radius: 32px;
                 border:none;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
                 outline:none;
                 font-size: $font-size-base;
                 font-family: "Montserrat";
@@ -58,11 +67,77 @@
                 color:$color-white;
                 padding: 10px;
                 border-radius: 50%;
+                cursor: pointer;
             }
-    
+        }
+    }
 
+    .why{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $color-background-gray;
+        
+        .top{
+
+            h1{
+                font-weight: 600;
+                margin: 20px 0px;
+            }
+
+            p{
+                line-height: 1.5em;
+            }
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width:40%;
         }
 
 
+    
     }
+
+    
+}
+
+
+
+@include small-screen{
+    .home{
+        padding: 0px;
+
+
+        .cover{
+            padding: 32px 16px;
+            border-radius: 0;
+            position:unset;
+
+
+            p{
+                width:50%;
+            }
+
+
+            .search{
+                position:relative;
+                bottom:auto;
+            }
+        }
+
+
+        .why{
+            padding:16px;
+
+            .top{
+                width:100%;
+            }
+        }
+    }
+    
+    
+
 }
