@@ -1,0 +1,62 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 16px 55px;
+
+
+    .left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        
+        .logo{
+            color:$color-accent;
+
+            span{
+                color:$color-interaction;
+            }
+        }
+
+        .pages{
+            display: flex;
+            gap: 40px;
+        }
+    }
+
+
+    .right{
+        display: flex;
+        gap: 30px;
+
+
+        .icon{
+            color:$color-interaction;
+        }
+    }
+
+
+    .icon{ 
+        display: flex;
+        align-items: center;
+        font-size: 32px;
+        color:$color-text;
+        cursor: pointer;
+    }
+}
+
+
+
+@include small-screen{
+    .navbar{
+        padding: 16px;
+    }
+
+
+
+    .pages, .language, .currency{
+        display:none !important;
+    }
+
+}

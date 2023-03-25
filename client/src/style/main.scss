@@ -1,0 +1,13 @@
+//=====SETTINGS=====
+@import "../style/colors";
+@import "../style/global";
+@import "../style/mixins";
+@import "../style/typography";
+
+
+//=====COMPONENTS=====
+@import "../components/Navbar/navbar";
+
+
+//=====PAGES=====
+@import "../pages/Home/home";

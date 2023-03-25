@@ -1,0 +1,68 @@
+.home{
+    display: flex;
+    flex-direction: column;
+
+    .cover{
+        background-image: url("../../../public/main-cover.jpg");
+        background-size: cover;
+        padding: 16px 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        h1{
+            font-size: $font-size-large;
+        }
+
+        p{
+            font-size: $font-size-base;
+            line-height: 1.7em;
+        }
+
+
+        .search{
+            display: flex;
+            position:relative;
+
+            input{
+                flex:1;
+                padding: 24px 64px;
+                border-radius: 32px;
+                border:none;
+                outline:none;
+                font-size: $font-size-base;
+                font-family: "Montserrat";
+                
+                &:focus{
+                    font-weight: bold;
+                }
+            }
+
+            .location{
+                position:absolute;
+                font-size: 32px;
+                color: $color-light-gray;
+                top:16px;
+                left:16px;
+            }
+
+            .search-button{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                font-size: 20px;
+                top:14px;
+                right:16px;
+                border:none;
+                background-color: $color-interaction;
+                color:$color-white;
+                padding: 10px;
+                border-radius: 50%;
+            }
+    
+
+        }
+
+
+    }
+}
