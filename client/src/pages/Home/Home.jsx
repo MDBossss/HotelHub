@@ -9,17 +9,21 @@ import {GiCat} from "react-icons/gi";
 const Home = () => {
   return (
     <div className="home">
-        <div className="cover">
-            <h1>Find an apartment <br/> for your vacation</h1>
-            <p>We have several thousand apartments for every taste in every corner of the globe</p>
-            <div className="search">
-                <div className="location">
-                    <HiOutlineLocationMarker/>
+        <div className="cover-wrapper container">
+            <div className="cover ">
+                <h1>Find an apartment <br/> for your vacation</h1>
+                <p>We have several thousand apartments for every taste in every corner of the globe</p>
+                <div className="search">
+                    <div className="location">
+                        <HiOutlineLocationMarker/>
+                    </div>
+                <input type="text" placeholder='Search Destination'/>
+                <button className='search-button'><FiSearch/></button>
                 </div>
-              <input type="text" placeholder='Search Destination'/>
-              <button className='search-button'><FiSearch/></button>
             </div>
         </div>
+        
+        
         <div className="why">
             <div className="top">
                 <h1>Why Choose Us</h1>

@@ -6,7 +6,7 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <div className="navbar container">
         <div className="left">
             <div className="hamburger icon">
                 <RxHamburgerMenu/>
