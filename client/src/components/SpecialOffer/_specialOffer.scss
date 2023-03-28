@@ -1,0 +1,123 @@
+.offer{
+    max-width:370px;
+    max-height:500px;
+    display: flex;
+    flex-direction: column;
+    border:2px solid $color-background-gray;
+    padding: 10px;
+    border-radius: 12px;
+    gap:25px;
+
+    .top{
+        display: flex;
+        flex-direction: column;
+        position:relative;
+
+        img{
+            border-radius:12px;
+            width: 100%;
+        }
+        
+        .rating{
+            position:absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:4px;
+            top:10px;
+            left:10px;
+            background-color:rgba(#FFFFFF,0.8);
+            border-radius: 8px;
+            padding:4px 11px;
+
+            .icon{
+                color:$color-yellow-star;
+            }
+        }
+
+        .favourite{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            top:10px;
+            right:10px;
+            background-color:rgba(#FFFFFF,0.8);
+            border-radius: 50%;
+            padding: 6px;
+            cursor:pointer;
+
+            .icon{
+                color:$color-interaction;
+            }
+        }
+
+
+
+    }
+
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        gap:15px;
+
+        .basic-info{
+            display: flex;
+            flex-direction: column;
+            gap:5px;
+            
+            h3{
+                font-weight: 500;
+                font-size: 22px;
+                color:$color-text;
+            }
+
+            p{
+                font-weight: 400;
+                font-size: 16px;
+                color:$color-light-gray;
+            }
+
+            h4{
+                font-weight: 400;
+                font-size: 18px;
+                color:$color-text;
+            }
+        }
+
+        .price{
+            h3{
+                color:$color-accent;
+                font-weight: 500;
+                font-size: 30px;
+
+                span{
+                    font-weight: 400;
+                    font-size: 18px;
+                }
+            }
+        }
+
+
+        .details{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .item{
+                display: flex;
+                align-items: center;
+                gap:10px;
+
+                p{
+                    font-size: 16px;
+                    color:$color-light-gray;
+                }
+
+                .icon{
+                    color:$color-accent;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

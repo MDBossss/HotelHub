@@ -5,8 +5,35 @@ import {MdOutlinePayments} from "react-icons/md";
 import {TbListSearch} from "react-icons/tb";
 import {BiSupport} from "react-icons/bi";
 import {GiCat} from "react-icons/gi";
+import {BsChevronLeft,BsChevronRight} from "react-icons/bs";
+import SpecialOffer from '../../components/SpecialOffer/SpecialOffer';
+import { ReviewModel, SpecialOfferModel } from '../../types/model';
+import Review from '../../components/Review/Review';
 
 const Home = () => {
+
+    const specialOffer:SpecialOfferModel = {
+        name: "Wilderness Club at Big Ceddar",
+        description: "2 Bedroom Combined Lodge",
+        image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        price: 2016,
+        rating: 4.8,
+        dateStart: "28 October",
+        dateEnd: "1 November",
+        duration: 6,
+        beds: 4,
+        people: 8,
+        size: 220
+    };
+
+    const review:ReviewModel = {
+        publishedBy: "Kaarel Piho",
+        text: "I quickly found the right tour for me, but I had a few questions about the hotel, I wrote to tech support and they answered all my questions within an hour. The vacation itself was perfect. Thank you very much. I will come back again and again.",
+        userImage: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+        userProfession: "Chiropodist"
+    }
+
+
   return (
     <div className="home">
         <div className="cover-wrapper container">
@@ -57,6 +84,38 @@ const Home = () => {
                     </div>
                     <h2>We are nice</h2>
                     <p>Fantasy is over, there will be something really convincing here</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div className="special-offer-wrapper container">
+            <div className="special-offer">
+                <h1>Special offers</h1>
+                <div className="items">
+                    <SpecialOffer specialOffer={specialOffer}/>
+                    <SpecialOffer specialOffer={specialOffer}/>
+                    <SpecialOffer specialOffer={specialOffer}/>
+                </div>
+            </div>
+        </div>
+
+
+        <div className="reviews-wrapper container">
+            <div className="reviews">
+                <h1>Reviews</h1>
+                <div className="items">
+                    <Review review={review}/>
+                    <Review review={review}/>
+                    <Review review={review}/>
+                    <div className="more-left">
+                        <BsChevronLeft/>
+                    </div>
+                    <div className="more-right">
+                        <BsChevronRight/>
+                    </div>
+                    
                 </div>
             </div>
         </div>
