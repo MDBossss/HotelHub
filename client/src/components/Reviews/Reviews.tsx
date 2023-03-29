@@ -30,13 +30,13 @@ import {wrap} from "popmotion";
         center: {
         zIndex: 1,
         x: 0,
-        opacity: 1
+        opacity: 1,
         },
         exit: (direction: number) => {
         return {
             zIndex: 0,
             x: direction < 0 ? 1000 : -1000,
-            opacity: 0
+            opacity: 0,
         };
         }
     };
@@ -58,9 +58,9 @@ const Reviews = () => {
 
 
   return (
-    <AnimatePresence initial={false} custom={direction}>
+    <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div 
-            className="items"
+            className="review-items"
             key={page}
             custom={direction}
             variants={variants}
@@ -69,7 +69,7 @@ const Reviews = () => {
             exit="exit"
             transition={{
                 x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
+                opacity: { duration: 0.5 },
             }}
             drag="x"
             dragConstraints={{left:0,right:0}}
@@ -94,7 +94,6 @@ const Reviews = () => {
             
         </motion.div>
     </AnimatePresence>
-
   )
 }
 

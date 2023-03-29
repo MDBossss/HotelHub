@@ -99,7 +99,9 @@ const Home = () => {
         <div className="reviews-wrapper container">
             <div className="reviews">
                 <h1>Reviews</h1>
-                <Reviews/>
+                <div className="test-wrapper">
+                    <Reviews/>
+                </div>
                 <button>More reviews</button>
             </div>
         </div>
