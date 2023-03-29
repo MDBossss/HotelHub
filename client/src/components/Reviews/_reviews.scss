@@ -1,0 +1,13 @@
+.review-items{
+    display: flex;
+    gap:30px;
+    padding:0px 80px;
+}
+
+
+@include small-screen{
+    .review-items{
+        flex-direction:column;
+        text-align: center;
+    }
+}

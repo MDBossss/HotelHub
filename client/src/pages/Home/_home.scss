@@ -151,6 +151,7 @@
 
     .special-offer-wrapper{
         padding:0px 55px;
+
         .special-offer{
             display: flex;
             flex-direction: column;
@@ -173,18 +174,23 @@
     }
 
     .reviews-wrapper{
-
+        padding:0px 55px;
         .reviews{
             display: flex;
             flex-direction: column;
             align-items: center;
             gap:60px;
-            
-            .items{
-                display: flex;
-                gap:30px;
-                position:relative;
-                padding:0px 80px;
+            position:relative;
+
+            h1{
+                font-weight: 600;
+                font-size: 40px;
+                color: $color-text;
+            }
+
+            .test-wrapper{
+                width: 100%;
+                overflow:hidden;
 
                 .more{
                     position:absolute;
@@ -197,18 +203,26 @@
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
-                }
+                    transition: background-color 0.2s ease-in-out;
 
+                    &:hover{
+                        background-color: $color-interaction;
+                        color:$color-white;
+                    }
+                }
+            
                 .more-left{
                     left:0px;
                     top:50%;
                 }
-
+            
                 .more-right{
                     right: 0;
                     top: 50%;
                 }
             }
+            
+
 
             button{
                 padding: 15px 82px;
