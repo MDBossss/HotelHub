@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {HiOutlineLocationMarker} from "react-icons/hi";
 import {FiSearch} from "react-icons/fi";
 import {MdOutlinePayments} from "react-icons/md";
@@ -9,6 +9,7 @@ import {BsChevronLeft,BsChevronRight} from "react-icons/bs";
 import SpecialOffer from '../../components/SpecialOffer/SpecialOffer';
 import { ReviewModel, SpecialOfferModel } from '../../types/model';
 import Review from '../../components/Review/Review';
+import Reviews from '../../components/Reviews/Reviews';
 
 const Home = () => {
 
@@ -25,13 +26,6 @@ const Home = () => {
         people: 8,
         size: 220
     };
-
-    const review:ReviewModel = {
-        publishedBy: "Kaarel Piho",
-        text: "I quickly found the right tour for me, but I had a few questions about the hotel, I wrote to tech support and they answered all my questions within an hour. The vacation itself was perfect. Thank you very much. I will come back again and again.",
-        userImage: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-        userProfession: "Chiropodist"
-    }
 
 
   return (
@@ -105,18 +99,7 @@ const Home = () => {
         <div className="reviews-wrapper container">
             <div className="reviews">
                 <h1>Reviews</h1>
-                <div className="items">
-                    <Review review={review}/>
-                    <Review review={review}/>
-                    <Review review={review}/>
-                    <div className="more more-left">
-                        <BsChevronLeft/>
-                    </div>
-                    <div className="more more-right">
-                        <BsChevronRight/>
-                    </div>
-                    
-                </div>
+                <Reviews/>
                 <button>More reviews</button>
             </div>
         </div>
