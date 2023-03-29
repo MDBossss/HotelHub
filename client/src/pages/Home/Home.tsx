@@ -109,14 +109,15 @@ const Home = () => {
                     <Review review={review}/>
                     <Review review={review}/>
                     <Review review={review}/>
-                    <div className="more-left">
+                    <div className="more more-left">
                         <BsChevronLeft/>
                     </div>
-                    <div className="more-right">
+                    <div className="more more-right">
                         <BsChevronRight/>
                     </div>
                     
                 </div>
+                <button>More reviews</button>
             </div>
         </div>
     </div>

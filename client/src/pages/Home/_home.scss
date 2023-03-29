@@ -172,6 +172,59 @@
         }
     }
 
+    .reviews-wrapper{
+
+        .reviews{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:60px;
+            
+            .items{
+                display: flex;
+                gap:30px;
+                position:relative;
+                padding:0px 80px;
+
+                .more{
+                    position:absolute;
+                    width:50px;
+                    height: 50px;
+                    border-radius: 10px;
+                    background-color: $color-ligther-gray;
+                    color:#999999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+
+                .more-left{
+                    left:0px;
+                    top:50%;
+                }
+
+                .more-right{
+                    right: 0;
+                    top: 50%;
+                }
+            }
+
+            button{
+                padding: 15px 82px;
+                background-color: $color-interaction;
+                color:$color-white;
+                font-weight: 600;
+                font-size: 16px;
+                border:none;
+                outline:none;
+                border-radius: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+
     
 }
 
@@ -227,6 +280,7 @@
                 }
             }
         }
+
         
     }
 
