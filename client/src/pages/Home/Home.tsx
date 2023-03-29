@@ -105,6 +105,13 @@ const Home = () => {
                 <button>More reviews</button>
             </div>
         </div>
+
+
+        <div className="recent-wrapper container">
+            <div className="recent">
+                <h1>Recent posts</h1>
+            </div>
+        </div>
     </div>
   )
 }

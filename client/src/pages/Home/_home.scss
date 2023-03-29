@@ -182,10 +182,44 @@
             gap:60px;
             position:relative;
 
+            h1{
+                font-weight: 600;
+                font-size: 40px;
+                color: $color-text;
+            }
 
             .test-wrapper{
                 width: 100%;
                 overflow:hidden;
+
+                .more{
+                    position:absolute;
+                    width:50px;
+                    height: 50px;
+                    border-radius: 10px;
+                    background-color: $color-ligther-gray;
+                    color:#999999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease-in-out;
+
+                    &:hover{
+                        background-color: $color-interaction;
+                        color:$color-white;
+                    }
+                }
+            
+                .more-left{
+                    left:0px;
+                    top:50%;
+                }
+            
+                .more-right{
+                    right: 0;
+                    top: 50%;
+                }
             }
             
 
