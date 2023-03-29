@@ -2,27 +2,12 @@
     display: flex;
     gap:30px;
     padding:0px 80px;
+}
 
-    .more{
-        position:absolute;
-        width:50px;
-        height: 50px;
-        border-radius: 10px;
-        background-color: $color-ligther-gray;
-        color:#999999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
 
-    .more-left{
-        left:0px;
-        top:50%;
-    }
-
-    .more-right{
-        right: 0;
-        top: 50%;
+@include small-screen{
+    .review-items{
+        flex-direction:column;
+        text-align: center;
     }
 }

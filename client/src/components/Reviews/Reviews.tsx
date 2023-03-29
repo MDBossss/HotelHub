@@ -58,6 +58,7 @@ const Reviews = () => {
 
 
   return (
+    <>
     <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div 
             className="review-items"
@@ -85,15 +86,17 @@ const Reviews = () => {
               }}
             >{reviews[imageIndex]}
             
-            <div className="more more-left" onClick={() => paginate(-1)}>
-                <BsChevronLeft/>
-            </div>
-            <div className="more more-right" onClick={() => paginate(1)}>
-                <BsChevronRight/>
-            </div>
+            
             
         </motion.div>
     </AnimatePresence>
+    <div className="more more-left" onClick={() => paginate(-1)}>
+        <BsChevronLeft/>
+    </div>
+    <div className="more more-right" onClick={() => paginate(1)}>
+        <BsChevronRight/>
+    </div>
+    </>
   )
 }
 
