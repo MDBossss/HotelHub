@@ -111,6 +111,7 @@
 
 @include small-screen{
     .footer{
+        padding: 16px;
         .top{
             flex-direction: column;
             gap:30px;

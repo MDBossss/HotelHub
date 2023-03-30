@@ -1,7 +1,11 @@
 .review-items{
     display: flex;
-    gap:30px;
     padding:0px 80px;
+
+    .mapped-items{
+        display: flex;
+        gap:30px;
+    }
 }
 
 
@@ -9,5 +13,6 @@
     .review-items{
         flex-direction:column;
         text-align: center;
+        padding:0 16px;
     }
 }

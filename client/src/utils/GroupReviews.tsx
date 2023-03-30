@@ -8,7 +8,7 @@ export function groupReviews(reviews:ReviewModel[]){
     for (let i = 0; i < reviews.length; i += 3) {
     const group = reviews.slice(i, i + 3);
     const groupDiv = (
-        <div key={i} className="review-items">
+        <div key={i} className="mapped-items">
         {group.map((review,index) => (
             <React.Fragment key={index}>
                 <Review review={review} />

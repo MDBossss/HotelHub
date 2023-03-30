@@ -330,26 +330,30 @@
                 }
             }
         }   
-    }
 
-
-    .reviews-wrapper{
-        .swipe-wrapper{
-            span{
-                display:inline !important;
+        .reviews-wrapper{
+            padding: 16px;
+            .swipe-wrapper{
+                span{
+                    display:inline !important;
+                }
+            }
+            .test-wrapper{
+                .more{
+                    display:none !important;
+                }
             }
         }
-        .test-wrapper{
-            .more{
-                display:none !important;
-            }
-        }
-    }
-
-    .recent-wrapper{
-        padding: 16px;
-    }
     
+        .recent-wrapper{
+            padding: 16px;
+        }
+        
+
+    }
+
+
+
     
 
 }
