@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import { ReviewModel } from '../../types/model'
 import Review from '../Review/Review'
 import {motion,AnimatePresence} from "framer-motion";
 import {wrap} from "popmotion";
-import { GroupReviews } from '../../utils/GroupReviews';
+import { groupReviews, singleReviews } from '../../utils/GroupReviews';
 
 
     const review:ReviewModel = {
@@ -55,7 +55,7 @@ import { GroupReviews } from '../../utils/GroupReviews';
 
 const Reviews = () => {
     const [reviewData,setReviewData] = useState<ReviewModel[]>([review,review,review,review,review,review,review,review,review]); //raw data fetched from backend
-    const [reviews,setReviews] = useState([itemSmallScreen,itemSmallScreen,itemSmallScreen]) //jsx which will be shown in the slider (1 or 3 elements)
+    const [reviews,setReviews] = useState<ReviewModel[] | JSX.Element[]>([]) //jsx which will be shown in the slider (1 or 3 elements)
     const [[page,direction],setPage] = useState([0,0]);
 
 
@@ -68,8 +68,24 @@ const Reviews = () => {
 
 
     const updateReviews = (windowSize:number) => {
-        return windowSize < 992 ? reviewData : GroupReviews(reviewData);
+        return windowSize < 992 ? singleReviews(reviewData) : groupReviews(reviewData);
     }
+
+    useEffect(() => {
+        const handleResize = () => {
+            const newWindowWidth = window.innerWidth;
+            const newReviews = updateReviews(newWindowWidth);
+            setReviews(newReviews);
+        }
+
+        handleResize();
+        window.addEventListener("resize",handleResize);
+
+        return () => {
+            window.removeEventListener("resize",handleResize);
+        }
+
+    },[])
 
 
   return (
@@ -99,11 +115,7 @@ const Reviews = () => {
                   paginate(-1);
                 }
               }}
-            >{reviews[imageIndex]}
-            
-            
-            
-        </motion.div>
+            ><>{reviews[imageIndex]}</></motion.div>
     </AnimatePresence>
     <div className="more more-left" onClick={() => paginate(-1)}>
         <BsChevronLeft/>
