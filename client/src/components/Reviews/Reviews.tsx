@@ -13,18 +13,7 @@ import { groupReviews, singleReviews } from '../../utils/GroupReviews';
         userImage: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
         userProfession: "Chiropodist"
     }
-
-
-    const itemBigScreen = <>
-        <Review review={review}/>
-        <Review review={review}/>
-        <Review review={review}/>
-    </>
-
-    const itemSmallScreen = <>
-            <Review review={review}/>
-        </>
-
+    
     const variants = {
         enter: (direction: number) => {
         return {

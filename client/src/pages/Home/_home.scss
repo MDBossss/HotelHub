@@ -1,7 +1,7 @@
 .home{
     display: flex;
     flex-direction: column;
-    gap:100px;
+    gap:150px;
 
     .cover-wrapper{
         display: flex;
@@ -170,6 +170,7 @@
                 justify-content: center;
                 flex-direction: row;
                 gap:30px;
+
             }
         }
     }
@@ -187,6 +188,19 @@
                 font-weight: 600;
                 font-size: 40px;
                 color: $color-text;
+            }
+
+            .swipe-wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                span{
+                    font-size: 12px;
+                    font-style: italic;
+                    display:none;
+                }
             }
 
             .test-wrapper{
@@ -239,6 +253,27 @@
             }
         }
     }
+
+
+    .recent-wrapper{
+        padding:0px 55px;
+        .recent{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+
+            h1{
+                font-weight: 600;
+                font-size: 40px;
+                color: $color-text;
+            }
+        }
+    }
+
+
+
 
     
 }
@@ -294,12 +329,26 @@
                     flex-direction: column !important;
                 }
             }
-        }
-
-        
+        }   
     }
 
 
+    .reviews-wrapper{
+        .swipe-wrapper{
+            span{
+                display:inline !important;
+            }
+        }
+        .test-wrapper{
+            .more{
+                display:none !important;
+            }
+        }
+    }
+
+    .recent-wrapper{
+        padding: 16px;
+    }
     
     
 

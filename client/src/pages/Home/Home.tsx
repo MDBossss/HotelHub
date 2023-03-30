@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
 import {HiOutlineLocationMarker} from "react-icons/hi";
 import {FiSearch} from "react-icons/fi";
 import {MdOutlinePayments} from "react-icons/md";
 import {TbListSearch} from "react-icons/tb";
 import {BiSupport} from "react-icons/bi";
 import {GiCat} from "react-icons/gi";
-import {BsChevronLeft,BsChevronRight} from "react-icons/bs";
 import SpecialOffer from '../../components/SpecialOffer/SpecialOffer';
 import { ReviewModel, SpecialOfferModel } from '../../types/model';
-import Review from '../../components/Review/Review';
 import Reviews from '../../components/Reviews/Reviews';
+import Recents from '../../components/Recents/Recents';
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
 
@@ -84,7 +83,7 @@ const Home = () => {
 
 
 
-        <div className="special-offer-wrapper container">
+        <div className="special-offer-wrapper container" id='Special Offers'>
             <div className="special-offer">
                 <h1>Special offers</h1>
                 <div className="items">
@@ -96,22 +95,31 @@ const Home = () => {
         </div>
 
 
-        <div className="reviews-wrapper container">
+        <div className="reviews-wrapper container" id='Reviews'>
             <div className="reviews">
                 <h1>Reviews</h1>
                 <div className="test-wrapper">
                     <Reviews/>
                 </div>
-                <button>More reviews</button>
+                <div className="swipe-wrapper">
+                    <span>Swipe for more...</span>
+                    <button>More reviews</button>
+                </div>
+
             </div>
         </div>
 
 
-        <div className="recent-wrapper container">
+        <div className="recent-wrapper container" id='Recent Posts'>
             <div className="recent">
                 <h1>Recent posts</h1>
+                <Recents/>
+                
             </div>
         </div>
+
+        <Footer/>
+
     </div>
   )
 }

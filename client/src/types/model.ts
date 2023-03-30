@@ -12,10 +12,18 @@ export interface SpecialOfferModel{
     size: number
 }
 
-
 export interface ReviewModel{
     publishedBy: string,
     text: string,
     userImage: string,
     userProfession: string
+}
+
+export interface RecentModel{
+    title: string,
+    description: string,
+    image: string,
+    readTime: string,
+    date: string,
+
 }

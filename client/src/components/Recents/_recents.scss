@@ -1,0 +1,12 @@
+.recents-items{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+@include small-screen{
+    .recents-items{
+        flex-direction: column;
+        gap: 32px;
+    }
+}

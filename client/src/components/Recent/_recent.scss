@@ -1,0 +1,61 @@
+.recent-item{
+    max-width: 370px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+
+    .top{
+        img{
+            width: 100%;
+            border-radius: 15px;
+        }
+    }
+
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+        .info{
+            display: flex;
+            justify-content: space-between;
+
+            .date{
+                font-weight: 400;
+                font-size: 14px;
+                color:$color-text;
+            }
+
+            .read-time{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap:7px;
+                font-weight: 500;
+                color:$color-accent;
+
+                .icon{
+                    font-size: 20px;
+                }
+
+                p{
+                    color:$color-accent;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        h3{
+            font-weight: 600;
+            font-size: 20px;
+            color: $color-text;
+        }
+
+        p{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            color:$color-text;
+        }
+    }
+}
