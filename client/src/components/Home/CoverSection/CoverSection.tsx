@@ -1,11 +1,7 @@
-import React, {useState} from "react";
 import SearchBar from "../../SearchBar/SearchBar";
-
 
 const CoverSection = () => {
     
-
-
   return (
     <div className="cover-wrapper container">
             <div className="cover ">
