@@ -1,0 +1,36 @@
+.special-offer-wrapper{
+    padding:0px 55px;
+
+    .special-offer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:60px;
+
+        h1{
+            font-weight: 600;
+            font-size: 40px;
+            color:$color-text;
+        }
+
+        .items{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            gap:30px;
+
+        }
+    }
+}
+
+@include small-screen{
+    .special-offer-wrapper{
+        padding: 16px;
+        .special-offer{
+            .items{
+                flex-direction: column !important;
+            }
+        }
+    }  
+}

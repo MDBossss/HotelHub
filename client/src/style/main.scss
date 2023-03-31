@@ -12,8 +12,14 @@
 @import "../components/Reviews/reviews";
 @import "../components/Recent/recent";
 @import "../components/Recents/recents";
-@import "../components/FooterSection/footerSection";
+@import "../components/FooterLinks/footerLinks";
 @import "../components/Footer/footer";
+@import "../components/Home/CoverSection/coverSection";
+@import "../components/Home/WhySection/whySection";
+@import "../components/Home/SpecialOfferSection/specialOfferSection";
+@import "../components/Home/ReviewsSection/reviewsSection";
+@import "../components/Home/RecentSection/recentSection";
+@import 'react-datepicker/dist/react-datepicker';
 
 
 //=====PAGES=====

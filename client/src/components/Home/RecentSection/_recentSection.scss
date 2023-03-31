@@ -1,0 +1,22 @@
+.recent-wrapper{
+    padding:0px 55px;
+    .recent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+
+        h1{
+            font-weight: 600;
+            font-size: 40px;
+            color: $color-text;
+        }
+    }
+}
+
+@include small-screen{
+    .recent-wrapper{
+        padding: 16px;
+    }
+}
