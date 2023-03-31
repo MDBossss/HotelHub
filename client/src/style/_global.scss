@@ -17,7 +17,19 @@ html{
 
 }
 
+a{
 
+    &:visited{
+        color:inherit;
+        text-decoration:none;
+    }
+}
+
+
+.active,.no-outline{
+    text-decoration: none;
+    color:$color-text;
+}
 
 .container{
     max-width:1250px;
