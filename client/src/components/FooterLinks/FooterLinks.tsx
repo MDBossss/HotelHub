@@ -1,11 +1,9 @@
-
 interface Props{
     sectionTitle: string,
     pageTitles: string[]
 }
 
-const FooterSection = ({sectionTitle,pageTitles}:Props) => {
-
+const FooterLinks = ({sectionTitle,pageTitles}:Props) => {
 
   return (
     <div className="footer-section">
@@ -17,4 +15,4 @@ const FooterSection = ({sectionTitle,pageTitles}:Props) => {
   )
 }
 
-export default FooterSection
+export default FooterLinks

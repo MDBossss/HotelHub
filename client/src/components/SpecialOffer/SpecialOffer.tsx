@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {AiFillStar,AiOutlineHeart,AiFillHeart} from "react-icons/ai";
 import {IoBedOutline} from "react-icons/io5";
 import {IoMdResize} from "react-icons/io";
 import {BsPerson} from "react-icons/bs";
 import { SpecialOfferModel } from '../../types/model';
 
-
 interface Props{
     specialOffer: SpecialOfferModel;
 }
 
-
 const SpecialOffer = ({specialOffer} :Props) => {
 
     const [favorited,setFavorited] = useState<boolean>(false);
-
 
     const handleFavorite = () => {
         setFavorited(!favorited);

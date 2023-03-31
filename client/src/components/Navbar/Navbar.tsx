@@ -1,4 +1,3 @@
-import React from 'react'
 import {RxHamburgerMenu} from "react-icons/rx";
 import {BsCurrencyDollar} from "react-icons/bs";
 import {RiEnglishInput} from "react-icons/ri";

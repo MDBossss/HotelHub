@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { RecentModel } from '../../types/model';
 import Recent from '../Recent/Recent';
 
@@ -18,8 +18,8 @@ const Recents = () => {
 
   return (
     <div className="recents-items">
-        {recents?.map((recent,key) => (
-            <Recent recent={recent}/>
+        {recents?.map((recent,index) => (
+            <Recent key={index} recent={recent}/>
         ))}
     </div>
   )

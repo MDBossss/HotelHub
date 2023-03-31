@@ -1,5 +1,5 @@
 import React from 'react'
-import FooterSection from '../FooterSection/FooterSection'
+import FooterLinks from '../FooterLinks/FooterLinks'
 import {BsSend,BsFillTelephoneFill,BsYoutube,BsFillSendFill} from "react-icons/bs";
 import {FaFacebookF} from "react-icons/fa";
 import {AiFillInstagram} from "react-icons/ai";
@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <div className="footer">
         <div className="top">
-            <FooterSection sectionTitle='Special Offers' pageTitles={["Title 1","Title 2","Title 3"]}/>
-            <FooterSection sectionTitle='Reviews' pageTitles={["Title 1","Title 2","Title 3"]}/>
-            <FooterSection sectionTitle='Recent Posts' pageTitles={["Title 1","Title 2","Title 3"]}/>
+            <FooterLinks sectionTitle='Special Offers' pageTitles={["Title 1","Title 2","Title 3"]}/>
+            <FooterLinks sectionTitle='Reviews' pageTitles={["Title 1","Title 2","Title 3"]}/>
+            <FooterLinks sectionTitle='Recent Posts' pageTitles={["Title 1","Title 2","Title 3"]}/>
             <div className="newsletter">
                 <h4>Subscribe to Newsletter</h4>
                 <p>Your email</p>
