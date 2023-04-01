@@ -13,10 +13,16 @@
         color: $color-text;
     }
 
-    .search{
-        bottom:auto;
+    .bar{
         width: 100%;
+
+        .search{
+            bottom:auto;
+            width: 100%;
+        }
     }
+
+
 
     .filters{
         display: flex;
@@ -100,5 +106,61 @@
                 }
             }
         }
+    }
+}
+
+@include small-screen{
+    .deals-wrapper{
+        padding: 0px 16px;
+
+        h1{
+            font-size: 32px;
+        }
+
+        .filters{
+            justify-content: center;
+            gap: 20px;
+            align-items: stretch;
+
+            button{
+                color:white;
+                background-color: $color-interaction;
+            }
+
+            & > * {
+                flex:1;
+            }
+
+            .right{
+                justify-content: center;
+                border:2px solid $color-interaction;
+                padding: 14px 27px;
+                border-radius: 10px;
+                cursor: pointer;
+
+
+                .sort{
+                    display:none !important;
+                    justify-content: center;
+                }
+
+                .filter{
+
+                    p{
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    .icon{
+                        font-size: 20px; 
+                    }
+                }
+            }
+
+            
+        }
+
+        
+
     }
 }

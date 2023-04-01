@@ -4,6 +4,7 @@ import {BiChevronDown} from "react-icons/bi";
 import {BsSliders} from "react-icons/bs";
 import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
+import { RiH3 } from 'react-icons/ri';
 
 const sortFilters:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -51,9 +52,9 @@ const Deals = () => {
         <Offers/>
     </div>
     <Footer 
-      section1={<p>Wilderness Club at Big Ceddar</p>}
-      section2={<p>Wilderness Club at Big Ceddar</p>}
-      section3={<p>Wilderness Club at Big Ceddar</p>}
+      section1={<h3>Don't forget to use our free promo code <br/> at the checkout! </h3>}
+      section2={<></>}
+      section3={<></>}
     />
     </>
   )
