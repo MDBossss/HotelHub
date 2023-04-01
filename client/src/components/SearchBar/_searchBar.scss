@@ -86,3 +86,20 @@
         cursor: pointer;
     }
 }
+
+
+@include small-screen{
+    .search{
+        position:relative;
+        bottom:auto;
+        width:100%;
+
+        .destination-wrapper input{
+            border-radius: 32px !important;
+        }
+
+        .dp-wrapper{
+            display:none;
+        }
+    }
+}

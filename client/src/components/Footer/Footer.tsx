@@ -4,13 +4,19 @@ import {BsSend,BsFillTelephoneFill,BsYoutube,BsFillSendFill} from "react-icons/b
 import {FaFacebookF} from "react-icons/fa";
 import {AiFillInstagram} from "react-icons/ai";
 
-const Footer = () => {
+interface Props{
+    section1: JSX.Element,
+    section2: JSX.Element,
+    section3: JSX.Element
+}
+
+const Footer = ({section1,section2,section3}:Props) => {
   return (
     <div className="footer">
         <div className="top">
-            <FooterLinks sectionTitle='Special Offers' pageTitles={["Title 1","Title 2","Title 3"]}/>
-            <FooterLinks sectionTitle='Reviews' pageTitles={["Title 1","Title 2","Title 3"]}/>
-            <FooterLinks sectionTitle='Recent Posts' pageTitles={["Title 1","Title 2","Title 3"]}/>
+            {section1}
+            {section2}
+            {section3}
             <div className="newsletter">
                 <h4>Subscribe to Newsletter</h4>
                 <p>Your email</p>
