@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { SpecialOfferModel } from '../../types/model'
-import SpecialOffer from '../SpecialOffer/SpecialOffer';
+import SpecialOffer from '../Offer/Offer';
 
 const offer:SpecialOfferModel = {
     name: "Wilderness Club at Big Ceddar",

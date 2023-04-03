@@ -9,7 +9,7 @@ interface Props{
     specialOffer: SpecialOfferModel;
 }
 
-const SpecialOffer = ({specialOffer} :Props) => {
+const Offer = ({specialOffer} :Props) => {
 
     const [favorited,setFavorited] = useState<boolean>(false);
 
@@ -57,4 +57,4 @@ const SpecialOffer = ({specialOffer} :Props) => {
   )
 }
 
-export default SpecialOffer
+export default Offer

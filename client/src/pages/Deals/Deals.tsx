@@ -5,6 +5,7 @@ import {BsSliders} from "react-icons/bs";
 import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
 import { RiH3 } from 'react-icons/ri';
+import { NavLink } from 'react-router-dom';
 
 const sortFilters:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -26,7 +27,7 @@ const Deals = () => {
         <SearchBar/>
       </div>
       <div className="filters">
-          <button>Show on map</button>
+          <NavLink to="/map"><button>Show on map</button></NavLink>
           <div className="right">
             <div className="filter">
               <BsSliders className='icon'/>

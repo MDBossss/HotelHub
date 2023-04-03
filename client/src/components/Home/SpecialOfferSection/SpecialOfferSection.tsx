@@ -1,5 +1,5 @@
 import React from 'react'
-import SpecialOffer from '../../SpecialOffer/SpecialOffer'
+import SpecialOffer from '../../Offer/Offer'
 import { SpecialOfferModel } from '../../../types/model';
 
 const specialOffer:SpecialOfferModel = {
