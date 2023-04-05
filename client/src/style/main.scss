@@ -19,10 +19,15 @@
 @import "../components/Home/SpecialOfferSection/specialOfferSection";
 @import "../components/Home/ReviewsSection/reviewsSection";
 @import "../components/Home/RecentSection/recentSection";
-@import 'react-datepicker/dist/react-datepicker';
 @import "../components/SearchBar/searchBar";
 @import "../components/Offers/offers";
 @import "../components/OfferLarge/offerLarge";
+@import "../components/Filter/filter";
+
+
+//=====LIBRARIES=====
+@import 'react-datepicker/dist/react-datepicker';
+
 
 
 //=====PAGES=====
@@ -31,3 +36,4 @@
 @import "../pages/Contact/contact";
 @import "../pages/Blog/blog";
 @import "../pages/About/about";
+@import "../pages/Map/map";

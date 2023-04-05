@@ -4,7 +4,6 @@ import {BiChevronDown} from "react-icons/bi";
 import {BsSliders} from "react-icons/bs";
 import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
-import { RiH3 } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
 
 const sortFilters:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];

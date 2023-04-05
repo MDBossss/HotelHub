@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FiSearch } from 'react-icons/fi'
-import { HiOutlineLocationMarker} from 'react-icons/hi'
+import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {IoIosCalendar} from "react-icons/io";
 import DatePicker from "react-datepicker";
 
