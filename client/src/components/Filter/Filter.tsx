@@ -3,14 +3,15 @@ import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {IoIosCalendar} from "react-icons/io";
 import {BiUser, BiChevronDown} from "react-icons/bi";
 import {DateRange,Range} from "react-date-range";
+import DropdownList from '../DropdownList/DropdownList';
 
 const locationFilters:string[] = ["Florida","Las Vegas","Bahamas"];
-const sleepsFilters:number[] = [1,2,3,4,5,6];
+const sleepsFilters:string[] = ["1","2","3","4","5","6"];
 
 const Filter = () => {
 
     const [locationFilter,setLocationFilter] = useState<string>("Florida");
-    const [sleepsFilter,setSleepsFilter] = useState<number>(4);
+    const [sleepsFilter,setSleepsFilter] = useState<string>("4");
 
     const [dateRange,setDateRange] = useState<Range[]>([
         {
@@ -36,7 +37,7 @@ const Filter = () => {
         })
     }
 
-    const handleSetSleeps = (sleeps:number) => {
+    const handleSetSleeps = (sleeps:string) => {
         setSleepsFilter(sleeps);
         setShowFilters({
             showLocation:false,
@@ -89,23 +90,19 @@ const Filter = () => {
         />}
 
         {showFilters.showLocation &&
-        <div className="location-list">
-            <p onClick={() => handleSetLocation("Florida")}>Florida</p>
-            <p onClick={() => handleSetLocation("Las Vegas")}>Las Vegas</p>
-            <p onClick={() => handleSetLocation("Bahamas")}>Bahamas</p>
-        </div>
+            <DropdownList 
+                values={locationFilters} 
+                onClicked={handleSetLocation} 
+                className="location-list"
+            />
         }
 
-        {showFilters.showSleeps &&
-        <div className="sleeps-list">
-            <p onClick={() => handleSetSleeps(1)}>1</p>
-            <p onClick={() => handleSetSleeps(2)}>2</p>
-            <p onClick={() => handleSetSleeps(3)}>3</p>
-            <p onClick={() => handleSetSleeps(4)}>4</p>
-            <p onClick={() => handleSetSleeps(5)}>5</p>
-            <p onClick={() => handleSetSleeps(6)}>6</p>
-        </div>
-        }
+        {showFilters.showSleeps && 
+            <DropdownList 
+                values={sleepsFilters} 
+                onClicked={handleSetSleeps} 
+                className='sleeps-list'
+            />}
     </div>
   )
 }
