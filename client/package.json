@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/react-date-range": "^1.4.4",
     "@types/react-datepicker": "^4.10.0",
     "framer-motion": "^10.9.4",
     "popmotion": "^11.0.5",

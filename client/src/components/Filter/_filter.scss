@@ -1,0 +1,101 @@
+.filter-wrapper{
+    border-top: 1px solid #D6D6D6;
+    border-bottom: 1px solid #D6D6D6;
+    padding: 15px 0px;
+    position:relative;
+
+    .filter{
+        display: flex;
+
+        .location, .date, .sleeps{
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            flex:1;
+            padding:0px 15px;
+
+            .left{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                p{
+                    font-weight: 400;
+                    color:$color-text;
+                    font-size: 16px; 
+                }
+
+                .icon{
+                    font-size: 22px;
+                    color:$color-light-gray;
+                }
+            }
+            .right{
+                display: flex;
+                flex:1;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+
+                .icon{
+                    font-size: 26px;
+                    color:$color-accent;
+                }
+            }
+        }
+
+        .location, .date{
+            border-right: 2px solid #EBEBEB;
+        }
+    }
+
+    .location-list{
+        background-color:#fff;
+        width: 33%;
+        color: $color-text;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        font-size: 18px;
+        padding: 25px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        position:absolute;
+        top:70px;
+        left:0px;
+        z-index: 1;
+
+        p:hover{
+            color:$color-interaction;
+            cursor: pointer;
+        }
+    }
+
+    .sleeps-list{
+        background-color:#fff;
+        width: 33%;
+        color: $color-text;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        font-size: 18px;
+        padding: 25px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        position:absolute;
+        top:70px;
+        right:0px;
+        z-index: 1;
+
+        p:hover{
+            color:$color-interaction;
+            cursor: pointer;
+        }
+    }
+
+    .date-range{
+        position:absolute;
+        z-index: 5;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        top:70px;
+        left:33%;
+    }
+}
