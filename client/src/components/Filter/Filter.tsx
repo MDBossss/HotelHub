@@ -87,6 +87,7 @@ const Filter = () => {
             ranges={dateRange}
             rangeColors={["#EE685F"]}
             className='date-range'
+            disabledDates={[]} //dates to be fetched from api and updated when someone makes a reservation
         />}
 
         {showFilters.showLocation &&

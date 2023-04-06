@@ -1,11 +1,11 @@
-export interface SpecialOfferModel{
+export interface OfferModel{
     name: string,
     description: string,
-    image: string,
+    images: string[],
     price:number,
     rating: number,
-    dateStart: string,
-    dateEnd: string,
+    dateStart: Date,
+    dateEnd: Date,
     duration: number,
     beds: number,
     people: number,
