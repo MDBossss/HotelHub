@@ -5,6 +5,7 @@ import {BsSliders} from "react-icons/bs";
 import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
+import DropdownList from '../../components/DropdownList/DropdownList';
 
 const sortFilters:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -38,14 +39,7 @@ const Deals = () => {
                 <p>{sortFilter}</p>
                 <BiChevronDown/>
               </div>
-              {showList && 
-                <div className="list">
-                  <p onClick={() => handleSort("Newest")}>Newest</p>
-                  <p onClick={() => handleSort("Rating")}>Rating</p>
-                  <p onClick={() => handleSort("Discount")}>Discount</p>
-                  <p onClick={() => handleSort("Low to High")}>Low to High</p>
-                  <p onClick={() => handleSort("High to Low")}>High to Low</p>
-                </div>}
+                {showList && <DropdownList values={sortFilters} onClicked={handleSort} className='list'/>}
             </div>
           </div>
         </div>

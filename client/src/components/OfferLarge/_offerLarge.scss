@@ -1,0 +1,128 @@
+.offer-large{
+    //max-height:500px;
+    display: flex;
+    flex-direction: column;
+    border-bottom:1px solid #D6D6D6;
+    padding: 25px;
+    gap:10px;
+
+    .top{
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+
+        .left{
+            flex: 0 0 70%;
+        }
+
+        .right{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 0 0 30%;
+            justify-content: space-between;
+        }
+
+        img{
+            border-radius:12px;
+            width: 100%;
+        }
+        
+    }
+
+    .bottom{
+        display: flex;
+        flex-direction: column;
+        gap:15px;
+
+        .basic-info{
+            display: flex;
+            flex-direction: column;
+            gap:5px;
+            
+            .name{
+                display: flex;
+                justify-content: space-between;
+
+                .rating{
+                    display: flex;
+                    align-items: center;
+                    gap:4px;
+
+                    p{
+                        color:$color-text;
+                    }
+
+                    .icon{
+                        color:$color-yellow-star;
+                    }
+                }
+
+                h3{
+                    font-weight: 500;
+                    font-size: 22px;
+                    color:$color-text;
+                }
+
+            }
+
+            p{
+                font-weight: 400;
+                font-size: 16px;
+                color:$color-light-gray;
+            }
+
+            h4{
+                font-weight: 400;
+                font-size: 18px;
+                color:$color-text;
+            }
+        }
+
+        .price{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            .icon{
+                color:$color-interaction;
+                font-size: 40px;
+                cursor: pointer;
+            }
+
+            h3{
+                color:$color-accent;
+                font-weight: 500;
+                font-size: 30px;
+
+                span{
+                    font-weight: 400;
+                    font-size: 18px;
+                }
+            }
+        }
+
+
+        .details{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .item{
+                display: flex;
+                align-items: center;
+                gap:10px;
+
+                p{
+                    font-size: 16px;
+                    color:$color-light-gray;
+                }
+
+                .icon{
+                    color:$color-accent;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

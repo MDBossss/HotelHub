@@ -1,8 +1,71 @@
-import React from 'react'
+import { useState } from 'react'
+import {AiFillStar,AiOutlineHeart,AiFillHeart} from "react-icons/ai";
+import {IoBedOutline} from "react-icons/io5";
+import {IoMdResize} from "react-icons/io";
+import {BsPerson} from "react-icons/bs";
+import {OfferModel } from '../../types/model';
 
-const OfferLarge = () => {
+interface Props{
+    offer: OfferModel;
+}
+
+const OfferLarge = ({offer} :Props) => {
+
+    const [favorited,setFavorited] = useState<boolean>(false);
+
+    const handleFavorite = () => {
+        setFavorited(!favorited);
+    }
+
   return (
-    <div>OfferLarge</div>
+    <div className="offer-large">
+        <div className="top">
+          <div className="left">
+            <img src={offer.images[0]} alt="main" />    
+          </div>
+          <div className="right">
+            <div className="image">
+              <img src={offer.images[1]} alt="main1" />
+            </div>
+            <div className="image">
+              <img src={offer.images[2]} alt="main2" />
+            </div>   
+          </div>  
+        </div>
+        <div className="bottom">
+            <div className="basic-info">
+              <div className="name">
+                <h3>{offer.name}</h3>
+                <div className="rating">
+                  <AiFillStar className='icon'/>
+                  <p>{offer.rating}</p>
+               </div>
+              </div>
+                <p>{offer.description}</p>
+                <h4>{new Date(offer.dateStart).toLocaleDateString("en-US",{ day: 'numeric', month: 'long' })} - {new Date(offer.dateEnd).toLocaleDateString("en-US",{ day: 'numeric', month: 'long' })}</h4>
+            </div>
+            <div className="price">
+                <div className="favourite" onClick={handleFavorite}>
+                    {favorited ? <AiFillHeart className='icon'/> : <AiOutlineHeart className='icon'/>}
+                </div>
+                <h3>${offer.price} <span>/{offer.duration} night</span></h3>
+            </div>
+            <div className="details">
+                <div className="item">
+                    <IoBedOutline className='icon'/>
+                    <p>{offer.beds} Beds</p>
+                </div>
+                <div className="item">
+                    <BsPerson className='icon'/>
+                    <p>{offer.people} People</p>
+                </div>
+                <div className="item">
+                    <IoMdResize className='icon'/>
+                    <p>{offer.size} m<sup>2</sup></p>
+                </div>
+            </div>
+        </div>
+    </div>
   )
 }
 
