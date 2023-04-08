@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect,useState,useRef} from 'react'
 import Offers from '../../components/Offers/Offers'
 import { NavLink } from 'react-router-dom'
 import Filter from '../../components/Filter/Filter'
@@ -11,6 +11,14 @@ const Map = () => {
     const [offers,setOffers] = useState<OfferModel[]>([]);
     const [selectedOfferID,setSelectedOfferID] = useState<number>(0);
 
+    const offerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if(offerRef){
+            offerRef.current?.scrollIntoView({behavior: "smooth"})
+            console.log("scrolled to offer " + selectedOfferID )
+        }
+    },[selectedOfferID])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,7 +36,7 @@ const Map = () => {
                 <Filter/>
             </div>
             <div className="offers">
-                <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID}/>
+                <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef}/>
             </div>
         </div>
         <div className="right-wrapper">

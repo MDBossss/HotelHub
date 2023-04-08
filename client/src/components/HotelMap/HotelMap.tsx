@@ -6,7 +6,7 @@ import MapMarker from '../MapMarker/MapMarker'
 interface Props{
     offers: OfferModel[],
     selectedOfferID: number,
-    setSelectedOfferID: (id:number) => void
+    setSelectedOfferID: (id:number) => void,
 }
 
 const options = {

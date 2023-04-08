@@ -1,15 +1,17 @@
-import { useState } from 'react'
+import { useState,forwardRef } from 'react'
 import {AiFillStar,AiOutlineHeart,AiFillHeart} from "react-icons/ai";
 import {IoBedOutline} from "react-icons/io5";
 import {IoMdResize} from "react-icons/io";
 import {BsPerson} from "react-icons/bs";
+import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {OfferModel } from '../../types/model';
 
 interface Props{
-    offer: OfferModel;
+    offer: OfferModel,
+    offerRef: React.MutableRefObject<HTMLDivElement | null> | null
 }
 
-const OfferLarge = ({offer} :Props) => {
+const OfferLarge = forwardRef(({offer,offerRef} :Props) => {
 
     const [favorited,setFavorited] = useState<boolean>(false);
 
@@ -17,8 +19,12 @@ const OfferLarge = ({offer} :Props) => {
         setFavorited(!favorited);
     }
 
+    const handleLocateOffer = () => {
+      
+    }
+
   return (
-    <div className="offer-large">
+    <div className="offer-large" ref={offerRef}>
         <div className="top">
           <div className="left">
             <img src={offer.images[0]} alt="main" />    
@@ -51,22 +57,27 @@ const OfferLarge = ({offer} :Props) => {
                 <h3>${offer.price} <span>/{offer.duration} night</span></h3>
             </div>
             <div className="details">
+              <div className="items">
                 <div className="item">
-                    <IoBedOutline className='icon'/>
-                    <p>{offer.beds} Beds</p>
-                </div>
-                <div className="item">
-                    <BsPerson className='icon'/>
-                    <p>{offer.people} People</p>
-                </div>
-                <div className="item">
-                    <IoMdResize className='icon'/>
-                    <p>{offer.size} m<sup>2</sup></p>
-                </div>
+                      <IoBedOutline className='icon'/>
+                      <p>{offer.beds} Beds</p>
+                  </div>
+                  <div className="item">
+                      <BsPerson className='icon'/>
+                      <p>{offer.people} People</p>
+                  </div>
+                  <div className="item">
+                      <IoMdResize className='icon'/>
+                      <p>{offer.size} m<sup>2</sup></p>
+                  </div>
+              </div>
+              <div className="locate" onClick={handleLocateOffer}>
+                <HiOutlineLocationMarker/>
+              </div>
             </div>
         </div>
     </div>
   )
-}
+})
 
 export default OfferLarge
