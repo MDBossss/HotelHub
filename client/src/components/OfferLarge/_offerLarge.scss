@@ -106,23 +106,41 @@
         .details{
             display: flex;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
 
-            .item{
+            .items{
                 display: flex;
                 align-items: center;
-                gap:10px;
+                gap: 20px;
 
-                p{
-                    font-size: 16px;
-                    color:$color-light-gray;
-                }
-
-                .icon{
-                    color:$color-accent;
-                    font-size: 24px;
+                .item{
+                    display: flex;
+                    align-items: center;
+                    gap:10px;
+    
+                    p{
+                        font-size: 16px;
+                        color:$color-light-gray;
+                    }
+    
+                    .icon{
+                        color:$color-accent;
+                        font-size: 24px;
+                    }
                 }
             }
+
+            .locate{
+                display: flex;
+                align-items: center;
+                background-color:$color-accent;
+                color:#fff;
+                font-size: 28px;
+                padding: 5px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            
         }
     }
 }
