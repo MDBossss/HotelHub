@@ -8,10 +8,12 @@ import {OfferModel } from '../../types/model';
 
 interface Props{
     offer: OfferModel,
-    offerRef: React.MutableRefObject<HTMLDivElement | null> | null
+    offerRef: React.MutableRefObject<HTMLDivElement | null> | null,
+    mapRef: React.MutableRefObject<google.maps.Map | undefined>,
+    setSelectedOfferID: (id:number) => void
 }
 
-const OfferLarge = forwardRef(({offer,offerRef} :Props) => {
+const OfferLarge = forwardRef(({offer,offerRef,mapRef,setSelectedOfferID} :Props) => {
 
     const [favorited,setFavorited] = useState<boolean>(false);
 
@@ -20,7 +22,10 @@ const OfferLarge = forwardRef(({offer,offerRef} :Props) => {
     }
 
     const handleLocateOffer = () => {
-      
+      if(mapRef.current){
+        setSelectedOfferID(offer.id)
+        mapRef.current.panTo({lat:offer.lat,lng:offer.lng});
+    }
     }
 
   return (

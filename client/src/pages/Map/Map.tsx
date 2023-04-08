@@ -12,6 +12,7 @@ const Map = () => {
     const [selectedOfferID,setSelectedOfferID] = useState<number>(0);
 
     const offerRef = useRef<HTMLDivElement | null>(null);
+    const mapRef = useRef<google.maps.Map>();
 
     useEffect(() => {
         if(offerRef){
@@ -36,11 +37,11 @@ const Map = () => {
                 <Filter/>
             </div>
             <div className="offers">
-                <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef}/>
+                <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef} mapRef={mapRef}/>
             </div>
         </div>
         <div className="right-wrapper">
-            <HotelMap offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID}/>
+            <HotelMap offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} mapRef={mapRef}/>
             <NavLink to="/deals" className="show-list"><button>Show by list</button></NavLink>
         </div>
     </div>

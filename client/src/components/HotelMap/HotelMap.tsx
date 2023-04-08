@@ -7,6 +7,7 @@ interface Props{
     offers: OfferModel[],
     selectedOfferID: number,
     setSelectedOfferID: (id:number) => void,
+    mapRef: React.MutableRefObject<google.maps.Map | undefined>
 }
 
 const options = {
@@ -16,10 +17,7 @@ const options = {
     fullscreenControl: false
 }
 
-const HotelMap = ({offers,selectedOfferID,setSelectedOfferID}:Props) => {
-
-    const mapRef = useRef<google.maps.Map>();
-
+const HotelMap = ({offers,selectedOfferID,setSelectedOfferID,mapRef}:Props) => {
 
     const [mapPosition,setMapPosition] = useState({
         center:{
