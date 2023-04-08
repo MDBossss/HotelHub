@@ -1,4 +1,5 @@
 export interface OfferModel{
+    id:number,
     name: string,
     description: string,
     images: string[],
@@ -10,6 +11,8 @@ export interface OfferModel{
     beds: number,
     people: number,
     size: number
+    lat: number,
+    lng: number
 }
 
 export interface ReviewModel{

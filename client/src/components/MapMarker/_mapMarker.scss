@@ -1,0 +1,20 @@
+.map-marker{
+    padding: 3px 11px;
+    background-color: #fff;
+    border:1px solid #999999;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $color-accent;
+        border:1px solid $color-accent;
+        color:#fff;
+    }
+}
+
+.map-marker-selected{
+    background-color: $color-accent;
+    border:1px solid $color-accent;
+    color:#fff;
+}
