@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState,useRef} from 'react'
 import { OfferModel } from '../../types/model'
 import {useJsApiLoader,GoogleMap,OverlayView} from "@react-google-maps/api"
 import MapMarker from '../MapMarker/MapMarker'
 
 interface Props{
-    offers: OfferModel[]
+    offers: OfferModel[],
+    selectedOfferID: number,
+    setSelectedOfferID: (id:number) => void
 }
 
 const options = {
@@ -14,7 +16,10 @@ const options = {
     fullscreenControl: false
 }
 
-const HotelMap = ({offers}:Props) => {
+const HotelMap = ({offers,selectedOfferID,setSelectedOfferID}:Props) => {
+
+    const mapRef = useRef<google.maps.Map>();
+
 
     const [mapPosition,setMapPosition] = useState({
         center:{
@@ -28,12 +33,10 @@ const HotelMap = ({offers}:Props) => {
     })
 
     const handleMarkerClick = (offer:OfferModel) => {
-        // setMapPosition({
-        //     center: {
-        //         lat: offer.lat,
-        //         lng: offer.lng
-        //     }
-        // })
+        if(mapRef.current){
+            mapRef.current.panTo({lat:offer.lat,lng:offer.lng});
+        }
+        setSelectedOfferID(offer.id);
     }
 
     if(!isLoaded){
@@ -47,18 +50,14 @@ const HotelMap = ({offers}:Props) => {
             zoom={7}
             mapContainerStyle={{width: "100%", height: "100%"}}
             options={options}
+            onLoad={(map) => {mapRef.current = map}}
         >
             {offers?.map((offer) => (
                 <OverlayView position={{lat: offer.lat, lng: offer.lng}} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET} key={offer.id}>
-                    <MapMarker offer={offer} handleMarkerClick={handleMarkerClick}/>
+                    <MapMarker offer={offer} selectedOfferID={selectedOfferID} handleMarkerClick={handleMarkerClick}/>
                 </OverlayView>
             ))}
-            {/* <OverlayView
-                position={defaultMapProps.center}
-                mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-            >
-                <div>Hello</div>
-            </OverlayView> */}
+
         </GoogleMap>
     </div>
   )

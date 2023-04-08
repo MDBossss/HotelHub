@@ -9,6 +9,8 @@ import HotelMap from '../../components/HotelMap/HotelMap'
 const Map = () => {
 
     const [offers,setOffers] = useState<OfferModel[]>([]);
+    const [selectedOfferID,setSelectedOfferID] = useState<number>(0);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,11 +28,11 @@ const Map = () => {
                 <Filter/>
             </div>
             <div className="offers">
-                <OffersLarge offers={offers}/>
+                <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID}/>
             </div>
         </div>
         <div className="right-wrapper">
-            <HotelMap offers={offers}/>
+            <HotelMap offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID}/>
             <NavLink to="/deals" className="show-list"><button>Show by list</button></NavLink>
         </div>
     </div>
