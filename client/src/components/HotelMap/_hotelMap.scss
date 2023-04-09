@@ -8,3 +8,11 @@
     display:none;
 }
 
+@include small-screen{
+    .google-map{
+        width:inherit;
+        height:inherit;
+    }
+}
+
+

@@ -69,3 +69,26 @@
         left:33%;
     }
 }
+
+@include small-screen{
+
+
+    .filter-wrapper{
+        .filter{
+            .date{
+                width: 100%;
+                .right{
+                    p{
+                        display:none;
+                    }
+                    justify-content: flex-end;
+
+                }
+            }
+        }
+
+        .date-range{
+            left:10px;
+        }
+    }
+}

@@ -17,7 +17,6 @@ const Map = () => {
     useEffect(() => {
         if(offerRef){
             offerRef.current?.scrollIntoView({behavior: "smooth"})
-            console.log("scrolled to offer " + selectedOfferID )
         }
     },[selectedOfferID])
 
