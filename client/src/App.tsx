@@ -6,6 +6,7 @@ import Blog from "./pages/Blog/Blog";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Map from "./pages/Map/Map";
+import Booking from "./pages/Booking/Booking";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>
+        <Route path="deals/:id" element={<Booking/>}/>
       </Routes>
     </div>
   )
