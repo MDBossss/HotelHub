@@ -1,0 +1,34 @@
+.stepper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .connector{
+        height: 2px;
+        width: 80px;
+        background-color: $color-accent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .step{
+        width: 60px;
+        height:60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:#fff;
+        color:$color-accent;
+        border: 2px solid $color-accent;
+        font-size: 36px;
+        padding: 8px 23px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .step-done{
+        background-color:$color-accent;
+        color:#fff;
+    }
+}

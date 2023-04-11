@@ -1,0 +1,36 @@
+.reservation-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    h1{
+        font-weight: 600;
+        font-size: 40px;
+        color:$color-text;
+    }
+
+    .offer-info{
+        display: flex;
+        .left{
+
+            img{
+                width:100%;
+            }
+        }
+    }
+
+
+    button{
+        max-width: 275px;
+        background-color: $color-interaction;
+        color:#fff;
+        font-weight: 600;
+        font-size: 16px;
+        padding:15px 98px;
+        border-radius: 10px;
+        outline:none;
+        border:none;
+        cursor: pointer;
+    }
+}
