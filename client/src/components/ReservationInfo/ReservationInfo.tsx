@@ -33,9 +33,26 @@ const ReservationInfo = ({onNext,offer}:Props) => {
                         <p>{offer?.size} m<sup>2</sup></p>
                     </div>
                 </div>
-                <div className="labels">
+                <div className="pricing">
                     <div className="left">
-                        
+                        <p>Arrival Date</p>
+                        <p>Departure Date</p>
+                        <p>Total Nights</p>
+                        <p>Rate</p>
+                        <p>Discount</p>
+                        <p>Community Fee</p>
+                        <p>Tax</p>
+                        <p>Total</p>
+                    </div>
+                    <div className="right">
+                        <p>{offer?.dateStart && new Date(offer?.dateStart).toLocaleDateString("en-US",{ day: 'numeric', month: 'long', year: "numeric" })}</p>
+                        <p>{offer?.dateEnd && new Date(offer?.dateEnd).toLocaleDateString("en-US",{ day: 'numeric', month: 'long', year: "numeric" })}</p>
+                        <p>{offer?.duration}</p>
+                        <p className='money'>${offer?.price}</p>
+                        <input type="text" placeholder='Apply Coupon Code'/>
+                        <p className='money'>${offer?.price && (offer?.price * 0.075).toFixed(2)}</p>
+                        <p className='money'>${offer?.price && (offer.price * 0.071).toFixed(2)}</p>
+                        <p className='money-total'>${offer?.price && (offer.price + offer.price * 0.075 + offer.price * 0.071).toFixed(2)}</p>
                     </div>
                 </div>
             </div>
