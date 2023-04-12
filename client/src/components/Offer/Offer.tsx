@@ -4,6 +4,7 @@ import {IoBedOutline} from "react-icons/io5";
 import {IoMdResize} from "react-icons/io";
 import {BsPerson} from "react-icons/bs";
 import {OfferModel } from '../../types/model';
+import { NavLink } from 'react-router-dom';
 
 interface Props{
     offer: OfferModel;
@@ -20,7 +21,7 @@ const Offer = ({offer} :Props) => {
   return (
     <div className="offer">
         <div className="top">
-            <img src={offer.images[0]} alt="main" />
+            <NavLink to={`/deals/${offer.id}`}><img src={offer.images[0]} alt="main" /></NavLink>
             <div className="rating">
                 <AiFillStar className='icon'/>
                 <p>{offer.rating}</p>

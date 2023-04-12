@@ -5,7 +5,7 @@ import { IoMdResize } from 'react-icons/io'
 import { IoBedOutline } from 'react-icons/io5'
 
 interface Props{
-    onNext: () => void,
+    onNext: (number:number) => void,
     offer: OfferModel | undefined
 }
 
@@ -57,7 +57,7 @@ const ReservationInfo = ({onNext,offer}:Props) => {
                 </div>
             </div>
         </div>
-        <button onClick={onNext}>Next Step</button>
+        <button onClick={() => onNext(2)}>Next Step</button>
     </div>
   )
 }
