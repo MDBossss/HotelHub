@@ -5,6 +5,7 @@ import {IoMdResize} from "react-icons/io";
 import {BsPerson} from "react-icons/bs";
 import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {OfferModel } from '../../types/model';
+import { NavLink } from 'react-router-dom';
 
 interface Props{
     offer: OfferModel,
@@ -32,14 +33,14 @@ const OfferLarge = forwardRef(({offer,offerRef,mapRef,setSelectedOfferID} :Props
     <div className="offer-large" ref={offerRef}>
         <div className="top">
           <div className="left">
-            <img src={offer.images[0]} alt="main" />    
+          <NavLink to={`/deals/${offer.id}`}><img src={offer.images[0]} alt="main" /></NavLink>    
           </div>
           <div className="right">
             <div className="image">
-              <img src={offer.images[1]} alt="main1" />
+            <NavLink to={`/deals/${offer.id}`}><img src={offer.images[1]} alt="main1" /></NavLink>
             </div>
             <div className="image">
-              <img src={offer.images[2]} alt="main2" />
+            <NavLink to={`/deals/${offer.id}`}><img src={offer.images[2]} alt="main2" /></NavLink>
             </div>   
           </div>  
         </div>

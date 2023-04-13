@@ -69,6 +69,7 @@
                     font-weight: 600;
                     font-size: 18px;
                     color:$color-text;
+                    word-wrap:break-word;
 
                 }
 
@@ -118,5 +119,26 @@
         outline:none;
         border:none;
         cursor: pointer;
+    }
+}
+
+@include small-screen{
+    .offer-info{
+        flex-direction: column;
+
+        .pricing{
+
+            .left{
+                flex:1;
+                max-width: 50%;
+                justify-content: space-between;
+            }
+
+            .right{
+                flex:1;
+                max-width: 50%;
+
+            }
+        }
     }
 }

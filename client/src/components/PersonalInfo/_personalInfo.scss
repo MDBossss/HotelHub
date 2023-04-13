@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 25px;
 
     h1{
@@ -11,8 +12,10 @@
     }
     
     form{
+        flex-shrink: 1;
         display: flex;
         flex-direction: column;
+        max-width: 100vw;
         gap: 20px;
 
         .row{
@@ -53,6 +56,19 @@
             border:none;
             cursor: pointer;
             align-self: center;
+        }
+    }
+}
+
+@include small-screen{
+    .personal-info{
+        h1{
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .row{
+            flex-direction: column;
         }
     }
 }

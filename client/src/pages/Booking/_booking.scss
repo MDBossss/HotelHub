@@ -9,6 +9,7 @@
         font-weight: 700;
         font-size: 48px;
         color:$color-text;
+        text-align: center;
     }
 
     .stepper{
@@ -16,9 +17,34 @@
     }
 
     .form-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         max-width:830px;
         border:1px solid #E7E6EB;
         border-radius: 12px;
         padding: 30px;
+        flex-shrink: 1;
+
+    }
+}
+
+@include small-screen{
+    .booking{
+        padding: 16px;
+    }
+
+    .title{
+        font-size: 32px !important; 
+    }
+
+    .reservation-info{
+        h1{
+            font-size: 32px;
+        }
+    }
+
+    .form-wrapper{
+        max-width:initial !important;
     }
 }
