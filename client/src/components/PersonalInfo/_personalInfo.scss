@@ -34,13 +34,17 @@
                 color:$color-text;
             }
     
-            input{
+            input, textarea{
                 font-size: 24px;
                 color:$color-text;
                 border:1px solid #d6d6d6;
                 border-radius:10px;
                 padding: 10px;
                 outline:none;
+            }
+
+            textarea{
+                resize: none;
             }
 
             input[type=number]::-webkit-inner-spin-button,
