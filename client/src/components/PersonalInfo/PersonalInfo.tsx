@@ -29,21 +29,21 @@ const PersonalInfo = ({onNext}:Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="field">
                 <label>Guest Full Name</label>
-                <input  {...register("fullName", {required: true})}/>
+                <input type='text' {...register("fullName", {required: true})} maxLength={50}/>
             </div>
             <div className="row">
                 <div className="field">
                     <label>Email</label>
-                    <input  {...register("email", {required: true})}/>
+                    <input type='email' {...register("email", {required: true})} maxLength={50}/>
                 </div>
                 <div className="field">
                     <label>Phone Number</label>
-                    <input  {...register("phoneNumber", {required: true})}/>
+                    <input type='number' {...register("phoneNumber", {required: true})}/>
                 </div>
             </div>
             <div className="field">
                     <label>Additional Information <span>(optional)</span></label>
-                    <input  {...register("additionalInfo", {required: false})}/>
+                    <input type='textarea' {...register("additionalInfo", {required: false})} maxLength={100}/>
             </div>
             <input type="submit" className='button' value="Next Step"/>
             
