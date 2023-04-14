@@ -43,7 +43,8 @@ const PersonalInfo = ({onNext}:Props) => {
             </div>
             <div className="field">
                     <label>Additional Information <span>(optional)</span></label>
-                    <input type='textarea' {...register("additionalInfo", {required: false})} maxLength={100}/>
+                    <textarea {...register("additionalInfo", {required:false})} maxLength={200} rows={3}/>
+                    {/* <input type='textarea' {...register("additionalInfo", {required: false})} maxLength={100}/> */}
             </div>
             <input type="submit" className='button' value="Next Step"/>
             
