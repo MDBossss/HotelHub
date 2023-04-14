@@ -28,12 +28,12 @@ const PaymentInfo = ({offer}:Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="field">
                 <label>Cardholder Name</label>
-                <input {...register("cardholderName", {required: true})}/>
+                <input type='text' {...register("cardholderName", {required: true})} maxLength={50}/>
             </div>
             <div className="row">
                 <div className="field">
                     <label>Card Number</label>
-                    <input {...register("cardNumber", {required: true})}/>
+                    <input type='number' {...register("cardNumber", {required: true, maxLength: 16})}/>
                 </div>
                 <div className="field">
                     <label>Expiry Date</label>
