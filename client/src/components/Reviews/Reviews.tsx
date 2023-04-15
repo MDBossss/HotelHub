@@ -5,14 +5,6 @@ import Review from '../Review/Review'
 import {motion,AnimatePresence} from "framer-motion";
 import {wrap} from "popmotion";
 import { groupReviews, singleReviews } from '../../utils/GroupReviews';
-
-
-    const review:ReviewModel = {
-        publishedBy: "Kaarel Piho",
-        text: "I quickly found the right tour for me, but I had a few questions about the hotel, I wrote to tech support and they answered all my questions within an hour. The vacation itself was perfect. Thank you very much. I will come back again and again.",
-        userImage: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-        userProfession: "Chiropodist"
-    }
     
     const variants = {
         enter: (direction: number) => {
@@ -43,11 +35,15 @@ import { groupReviews, singleReviews } from '../../utils/GroupReviews';
 
 
 const Reviews = () => {
-    const [reviewData,setReviewData] = useState<ReviewModel[]>([review,review,review,review,review,review,review,review,review]); //raw data fetched from backend
+    const [reviewData,setReviewData] = useState<ReviewModel[]>([]); //raw data fetched from backend
     const [reviews,setReviews] = useState<ReviewModel[] | JSX.Element[]>([]) //jsx which will be shown in the slider (1 or 3 elements)
     const [[page,direction],setPage] = useState([0,0]);
 
-
+    useEffect(() => {
+        fetch("/reviews.json")
+        .then(response => response.json())
+        .then(data => setReviewData(data))
+    },[])
 
     const imageIndex = wrap(0, reviews.length, page);
 
@@ -59,6 +55,8 @@ const Reviews = () => {
     const updateReviews = (windowSize:number) => {
         return windowSize < 992 ? singleReviews(reviewData) : groupReviews(reviewData);
     }
+
+    
 
     useEffect(() => {
         const handleResize = () => {
