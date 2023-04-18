@@ -45,19 +45,6 @@ const Reviews = () => {
         .then(data => setReviewData(data))
     },[])
 
-    const imageIndex = wrap(0, reviews.length, page);
-
-    const paginate = (newDirection: number) => {
-        setPage([page + newDirection, newDirection]);
-    };
-
-
-    const updateReviews = (windowSize:number) => {
-        return windowSize < 992 ? singleReviews(reviewData) : groupReviews(reviewData);
-    }
-
-    
-
     useEffect(() => {
         const handleResize = () => {
             const newWindowWidth = window.innerWidth;
@@ -74,10 +61,25 @@ const Reviews = () => {
 
     },[])
 
+    const imageIndex = wrap(0, reviews.length, page);
+
+    const paginate = (newDirection: number) => {
+        setPage([page + newDirection, newDirection]);
+    };
+
+
+    const updateReviews = (windowSize:number) => {
+        return windowSize < 992 ? singleReviews(reviewData) : groupReviews(reviewData);
+    }
+
+    
+
+    
+
 
   return (
     <>
-    <AnimatePresence initial={false} custom={direction} mode="wait">
+        <AnimatePresence initial={false} custom={direction} mode="wait" key={reviewData.length}>
         <motion.div 
             className="review-items"
             key={page}
@@ -97,13 +99,14 @@ const Reviews = () => {
                 const swipe = swipePower(offset.x, velocity.x);
     
                 if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
+                paginate(1);
                 } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
+                paginate(-1);
                 }
-              }}
+            }}
             ><>{reviews[imageIndex]}</></motion.div>
-    </AnimatePresence>
+    </AnimatePresence> 
+   
     <div className="more more-left" onClick={() => paginate(-1)}>
         <BsChevronLeft/>
     </div>
