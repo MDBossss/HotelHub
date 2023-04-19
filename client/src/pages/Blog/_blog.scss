@@ -1,0 +1,13 @@
+.blog-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-items: center;
+
+    h1{
+        margin: 80px 0px;
+        font-weight: 700;
+        font-size: 48px;
+        color: $color-text;
+    }
+}

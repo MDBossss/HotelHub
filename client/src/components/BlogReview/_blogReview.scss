@@ -1,0 +1,43 @@
+.blog-review{
+    display: flex;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    border-bottom:1px solid #e6e6e6;
+
+    .left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .profile-image{
+            width:128px;
+            height: 128px;
+            display: flex;
+
+            img{
+                width: 100%;
+                object-fit: cover;
+                border-radius: 12px;
+            }
+        }
+
+        .name{
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 2px;
+            color: $color-text;
+        }
+
+        .profession{
+            font-weight: 400;
+            font-style: italic;
+            font-size: 12px;
+        }
+    }
+
+    .right{
+        display: flex;
+        padding: 20px;
+    }
+}

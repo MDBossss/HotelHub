@@ -1,0 +1,126 @@
+.about-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin-bottom: 100px;
+
+    .about-google-map{
+        width:100%;
+        height:400px;
+        position:relative;
+
+
+        .hq-location{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:5px;
+    
+            .logo{
+                width:50px;
+                height: 50px;
+                background-color: #fff;
+                border-radius: 12px;
+    
+                img{
+                    width:100%;
+                }
+            }
+    
+            h2{
+                color:#fff;
+            }
+        }
+    }
+
+    .moto{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position:absolute;
+        left:50%;
+        transform: translateX(-50%);
+        bottom:-40px;
+        background-color:#fff;
+        padding: 20px;
+        font-size: 22px;
+        border-radius: 999999px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        text-align: center;
+
+        p{
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        h1{
+            span{
+                &:first-child{
+                    color:$color-accent;
+                }
+    
+                &:last-child{
+                    color:$color-interaction;
+                }
+            }
+        } 
+    }
+
+    .who-are-we{
+        padding: 50px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h2{
+            font-size: 28px;
+            color:$color-accent;
+        }
+
+        h3{
+            color:$color-accent;
+        }
+
+        p{
+            line-height: 24px;
+        }
+
+        .links-wrapper{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:20px;
+
+            button{
+                outline:none;
+                border:none;
+                font-weight: 700;
+                background-color: $color-accent;
+                color:#fff;
+                padding: 14px 27px;
+                font-size: 12px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}
+
+#root > div > div.about-wrapper > div > div > div:nth-child(3),
+#root > div > div.about-wrapper > div > div > div:nth-child(2){
+    display:none;
+}
+
+@include small-screen{
+    .about-wrapper{
+        .moto{
+            border-radius: 0;
+        }
+    }
+}
