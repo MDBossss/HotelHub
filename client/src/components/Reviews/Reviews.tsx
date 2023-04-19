@@ -72,14 +72,9 @@ const Reviews = () => {
         return windowSize < 992 ? singleReviews(reviewData) : groupReviews(reviewData);
     }
 
-    
-
-    
-
-
   return (
     <>
-        <AnimatePresence initial={false} custom={direction} mode="wait" key={reviewData.length}>
+        <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div 
             className="review-items"
             key={page}
