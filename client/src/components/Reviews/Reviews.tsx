@@ -59,7 +59,7 @@ const Reviews = () => {
             window.removeEventListener("resize",handleResize);
         }
 
-    },[])
+    },[reviewData])
 
     const imageIndex = wrap(0, reviews.length, page);
 
@@ -75,31 +75,34 @@ const Reviews = () => {
   return (
     <>
         <AnimatePresence initial={false} custom={direction} mode="wait">
-        <motion.div 
-            className="review-items"
-            key={page}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-                x: { type: "spring", stiffness: 500, damping: 30 },
-                opacity: { duration: 0.5 },
-            }}
-            drag="x"
-            dragConstraints={{left:0,right:0}}
-            dragElastic={1}
-            onDragEnd={(e, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
-    
-                if (swipe < -swipeConfidenceThreshold) {
-                paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                paginate(-1);
-                }
-            }}
-            ><>{reviews[imageIndex]}</></motion.div>
+            {reviews.length > 0 && 
+                <motion.div 
+                className="review-items"
+                key={page}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                    x: { type: "spring", stiffness: 500, damping: 30 },
+                    opacity: { duration: 0.5 },
+                }}
+                drag="x"
+                dragConstraints={{left:0,right:0}}
+                dragElastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                    const swipe = swipePower(offset.x, velocity.x);
+        
+                    if (swipe < -swipeConfidenceThreshold) {
+                    paginate(1);
+                    } else if (swipe > swipeConfidenceThreshold) {
+                    paginate(-1);
+                    }
+                }}
+                ><>{reviews[imageIndex]}</></motion.div>
+            }
+        
     </AnimatePresence> 
    
     <div className="more more-left" onClick={() => paginate(-1)}>
