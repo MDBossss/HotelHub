@@ -67,3 +67,22 @@
         }
     }
 }
+
+@include small-screen{
+    .contact-wrapper{
+        h1{
+            font-size: 32px;
+        }
+
+        .information{
+            flex-direction: column;
+            gap: 50px;
+
+            .left{
+                h2{
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
