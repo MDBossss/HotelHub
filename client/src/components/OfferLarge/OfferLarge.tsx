@@ -1,4 +1,4 @@
-import { useState,forwardRef } from 'react'
+import { useState } from 'react'
 import {AiFillStar,AiOutlineHeart,AiFillHeart} from "react-icons/ai";
 import {IoBedOutline} from "react-icons/io5";
 import {IoMdResize} from "react-icons/io";
@@ -14,7 +14,7 @@ interface Props{
     setSelectedOfferID: (id:number) => void
 }
 
-const OfferLarge = forwardRef(({offer,offerRef,mapRef,setSelectedOfferID} :Props) => {
+const OfferLarge = ({offer,offerRef,mapRef,setSelectedOfferID} :Props) => {
 
     const [favorited,setFavorited] = useState<boolean>(false);
 
@@ -84,6 +84,6 @@ const OfferLarge = forwardRef(({offer,offerRef,mapRef,setSelectedOfferID} :Props
         </div>
     </div>
   )
-})
+}
 
 export default OfferLarge
