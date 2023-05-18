@@ -36,6 +36,10 @@ const SearchBar = () => {
         setShowDateRange(!showDateRange);
     }
 
+    const handleSearch = () => {
+        
+    }
+
   return (
     <div className="search">
         <div className="inputs">
@@ -64,7 +68,7 @@ const SearchBar = () => {
                 </div>} 
             </div>
         </div>
-        <button className='search-button' ><FiSearch/></button>
+        <button className='search-button' onClick={handleSearch}><FiSearch/></button>
     </div>
   )
 }
