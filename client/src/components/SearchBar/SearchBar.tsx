@@ -1,13 +1,40 @@
-import React, {useState} from 'react'
+import React, {useRef, useState, useEffect} from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {IoIosCalendar} from "react-icons/io";
-import DatePicker from "react-datepicker";
+import {DateRange,Range} from "react-date-range";
 
 const SearchBar = () => {
 
-    const [startDate,setStartDate] = useState<Date | null>(new Date());
+    const [showDateRange,setShowDateRange] = useState<boolean>(true);
+    const datePickerRef = useRef<HTMLDivElement>(null);
 
+    const [dateRange,setDateRange] = useState<Range[]>([
+        {
+            startDate: new Date(),
+            endDate: new Date(),
+            key:"selection",
+        }
+    ]);
+
+    useEffect(() => {
+        const handleClickOutside = (event:MouseEvent) => {
+            if(datePickerRef.current && !datePickerRef.current.contains(event.target as Node)){
+                setShowDateRange(false);
+            }
+        }
+
+        document.addEventListener("click",handleClickOutside);
+
+        return () => {
+            document.removeEventListener("click",handleClickOutside);
+        }
+    },[])
+
+    const handleToggleDateRange = (event: React.MouseEvent<HTMLParagraphElement>) => {
+        event.stopPropagation();
+        setShowDateRange(!showDateRange);
+    }
 
   return (
     <div className="search">
@@ -22,7 +49,19 @@ const SearchBar = () => {
                 <div className="calendar">
                     <IoIosCalendar/>
                 </div>
-                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
+                <p className='date' onClick={handleToggleDateRange}>{dateRange[0].startDate?.toLocaleDateString("hr-HR", {day: "2-digit",month: "2-digit"})} - {dateRange[0].endDate?.toLocaleDateString("hr-HR",{day:"2-digit", month: "2-digit"})}</p>
+                {showDateRange &&
+                <div ref={datePickerRef}>
+                    <DateRange 
+                    editableDateInputs={true}
+                    onChange={(item) => setDateRange([item.selection])}
+                    moveRangeOnFirstSelection={false}
+                    ranges={dateRange}
+                    rangeColors={["#EE685F"]}
+                    className='date-range'
+                    disabledDates={[]} //dates to be fetched from api and updated when someone makes a reservation
+                    />
+                </div>} 
             </div>
         </div>
         <button className='search-button' ><FiSearch/></button>

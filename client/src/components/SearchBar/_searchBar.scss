@@ -19,6 +19,7 @@
                 padding:24px 64px;
                 border-radius: 32px 0px 0px 32px;
                 border-right:1px solid #EBEBEB;
+                height: 100%;
             }
 
         }
@@ -26,9 +27,17 @@
         .dp-wrapper{
             position:relative;
 
-            input{
+            .date{
                 padding:24px 64px;
                 border-radius: 0px 32px 32px 0px; 
+                cursor: pointer;
+            }
+
+            .date-range{
+                position:absolute;
+                top: 90px;
+                z-index: 5;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
             }
 
         }
@@ -36,18 +45,19 @@
         &>*{
             flex:1;
 
-            input{
+            .date,input{
                 width:100%;
             }
         }
     }
 
-    input{
+    input,.date{
         border:none;
         outline:none;
         font-size: $font-size-base;
         font-family: "Montserrat";
         color: $color-text;
+        background-color: #fff;
         
     }
 
@@ -57,7 +67,7 @@
         position:absolute;
         font-size: 32px;
         color: $color-light-gray;
-        top:16px;
+        top:20px;
         left:16px;
         z-index: 1;
     }
@@ -66,7 +76,7 @@
         position:absolute;
         font-size: 32px;
         color: $color-light-gray;
-        top:16px;
+        top:20px;
         left:16px;
         z-index: 1;
     }
