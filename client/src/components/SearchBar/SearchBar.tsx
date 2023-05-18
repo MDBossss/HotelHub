@@ -3,6 +3,7 @@ import { FiSearch } from 'react-icons/fi'
 import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {IoIosCalendar} from "react-icons/io";
 import {DateRange,Range} from "react-date-range";
+import useClickOutside from '../../hooks/useClickOutside';
 
 const SearchBar = () => {
 
@@ -17,27 +18,17 @@ const SearchBar = () => {
         }
     ]);
 
-    useEffect(() => {
-        const handleClickOutside = (event:MouseEvent) => {
-            if(datePickerRef.current && !datePickerRef.current.contains(event.target as Node)){
-                setShowDateRange(false);
-            }
-        }
-
-        document.addEventListener("click",handleClickOutside);
-
-        return () => {
-            document.removeEventListener("click",handleClickOutside);
-        }
-    },[])
-
     const handleToggleDateRange = (event: React.MouseEvent<HTMLParagraphElement>) => {
         event.stopPropagation();
         setShowDateRange(!showDateRange);
     }
 
+    useClickOutside(datePickerRef, () => {
+        setShowDateRange(false);
+    })
+
     const handleSearch = () => {
-        
+
     }
 
   return (
