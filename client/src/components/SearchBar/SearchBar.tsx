@@ -7,7 +7,7 @@ import useClickOutside from '../../hooks/useClickOutside';
 
 const SearchBar = () => {
 
-    const [showDateRange,setShowDateRange] = useState<boolean>(true);
+    const [showDateRange,setShowDateRange] = useState<boolean>(false);
     const datePickerRef = useRef<HTMLDivElement>(null);
 
     const [dateRange,setDateRange] = useState<Range[]>([
