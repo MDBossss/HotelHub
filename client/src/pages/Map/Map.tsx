@@ -37,8 +37,6 @@ const Map = () => {
 
     useEffect(() => {
         const filteredResults = applyFilters(offers,filters);
-        console.log("filtered results:")
-        console.log(filteredResults)
         setFilteredOffers(filteredResults);
     },[filters,offers])
 
