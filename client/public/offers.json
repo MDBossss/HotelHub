@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "location": "Florida",
         "name": "Wilderness Club at Big Ceddar",
         "description": "2 Bedroom Combined Lodge",
         "images": [
@@ -21,6 +22,7 @@
     },
     {
         "id": 2,
+        "location": "Bahamas",
         "name": "Luxury Oceanfront Condo",
         "description": "1 Bedroom Ocean View Condo",
         "images": [
@@ -41,6 +43,7 @@
     },
     {
         "id": 3,
+        "location": "Florida",
         "name": "Charming Cottage in the Woods",
         "description": "2 Bedroom Rustic Cottage",
         "images": [
@@ -61,6 +64,7 @@
     },
     {
         "id": 4,
+        "location": "Las Vegas",
         "name": "Luxury Villa with Private Pool",
         "description": "3 Bedroom Ocean View Villa",
         "images": [
@@ -81,6 +85,7 @@
     },
     {
         "id": 5,
+        "location": "Bahamas",
         "name": "Mountain View Cabin with Hot Tub",
         "description": "1 Bedroom Cozy Cabin",
         "images": [
@@ -101,6 +106,7 @@
     },
     {
         "id": 6,
+        "location": "Bahamas",
         "name": "Beachfront Bungalow",
         "description": "1 Bedroom Beach View Bungalow",
         "images": [
@@ -121,6 +127,7 @@
     },
     {
         "id": 7,
+        "location": "Las Vegas",
         "name": "Modern City Apartment",
         "description": "2 Bedroom City View Apartment",
         "images": [
@@ -141,6 +148,7 @@
     },
     {
         "id": 8,
+        "location": "Florida",
         "name": "Tropical Paradise Beach House",
         "description": "4 Bedroom Beachfront House",
         "images": [
@@ -161,6 +169,7 @@
     },
     {
         "id": 9,
+        "location": "Las Vegas",
         "name": "Mountain Getaway Cabin",
         "description": "Cozy Cabin in the Heart of the Mountains",
         "images": [

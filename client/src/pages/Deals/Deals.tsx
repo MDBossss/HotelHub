@@ -6,16 +6,18 @@ import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
 import DropdownList from '../../components/DropdownList/DropdownList';
+import { Filters } from '../../types/model';
 
-const sortFilters:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
+const sortOptions:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
 const Deals = () => {
 
-  const [sortFilter,setSortFilter] = useState<string>("Relevance");
+  const [sortOption,setSortOption] = useState<string>(sortOptions[0]);
   const [showList,setShowList] = useState<boolean>(false);
+  const [filters,setFilters] = useState<Filters>({location:null,date:null,sleeps:null});
 
-  const handleSort = (sortFilter:string) => {
-    setSortFilter(sortFilter);
+  const handleSort = (sortOption:string) => {
+    setSortOption(sortOption);
     setShowList(false);
   }
 
@@ -36,14 +38,14 @@ const Deals = () => {
             <div className="sort">
               <p>Sort by</p>
               <div className="sort-filter" onClick={() => setShowList(!showList)}>
-                <p>{sortFilter}</p>
+                <p>{sortOption}</p>
                 <BiChevronDown/>
               </div>
-                {showList && <DropdownList values={sortFilters} onClicked={handleSort} className='list'/>}
+                {showList && <DropdownList values={sortOptions} onClicked={handleSort} className='list'/>}
             </div>
           </div>
         </div>
-        <Offers/>
+        <Offers filters={filters}/>
     </div>
     <Footer 
       section1={<h3>Don't forget to use our free promo code <br/> at the checkout! </h3>}

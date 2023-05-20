@@ -3,12 +3,14 @@ import Offers from '../../components/Offers/Offers'
 import { NavLink } from 'react-router-dom'
 import Filter from '../../components/Filter/Filter'
 import OffersLarge from '../../components/OffersLarge/OffersLarge'
-import { OfferModel } from '../../types/model'
+import { Filters, OfferModel } from '../../types/model'
 import HotelMap from '../../components/HotelMap/HotelMap'
 
 const Map = () => {
 
     const [offers,setOffers] = useState<OfferModel[]>([]);
+    const [filters,setFilters] = useState<Filters>({location:null,date:null,sleeps:null});
+    const [filteredOffers,setFilteredOffers] = useState<OfferModel[]>([]);
     const [selectedOfferID,setSelectedOfferID] = useState<number>(0);
 
     const offerRef = useRef<HTMLDivElement | null>(null);
@@ -29,11 +31,12 @@ const Map = () => {
         fetchData();
     },[])
 
+
   return (
     <div className="map-wrapper">
         <div className="left-wrapper">
             <div className="filters">
-                <Filter/>
+                <Filter setFilters={setFilters}/>
             </div>
             <div className="offers">
                 <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef} mapRef={mapRef}/>

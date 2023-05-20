@@ -1,10 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import { OfferModel } from '../../types/model'
+import { OfferModel,Filters } from '../../types/model'
 import Offer from '../Offer/Offer';
 
-const Offers = () => {
+interface Props{
+  filters:Filters
+}
+
+const Offers = ({filters}:Props) => {
 
     const [offers,setOffers] = useState<OfferModel[]>([]);
+    const [filteredOffers,setFilteredOffers] = useState<OfferModel[]>([]);
 
     useEffect(() => {
       fetch("/offers.json")

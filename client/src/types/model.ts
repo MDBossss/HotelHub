@@ -1,5 +1,6 @@
 export interface OfferModel{
     id:number,
+    location:string,
     name: string,
     description: string,
     images: string[],
@@ -30,3 +31,9 @@ export interface RecentModel{
     date: string,
 
 }
+
+export interface Filters{
+    location:string | null,
+    date:{startDate: Date | undefined, endDate: Date | undefined} | null,
+    sleeps:string | null,
+  }
