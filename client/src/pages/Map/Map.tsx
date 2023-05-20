@@ -5,6 +5,7 @@ import Filter from '../../components/Filter/Filter'
 import OffersLarge from '../../components/OffersLarge/OffersLarge'
 import { Filters, OfferModel } from '../../types/model'
 import HotelMap from '../../components/HotelMap/HotelMap'
+import applyFilters from '../../utils/OfferFiltering'
 
 const Map = () => {
 
@@ -26,10 +27,20 @@ const Map = () => {
         const fetchData = async () => {
             fetch("/offers.json")
             .then(response => response.json())
-            .then(data => setOffers(data))
+            .then(data => {
+                setOffers(data)
+                setFilteredOffers(data)
+            })
         }
         fetchData();
     },[])
+
+    useEffect(() => {
+        const filteredResults = applyFilters(offers,filters);
+        console.log("filtered results:")
+        console.log(filteredResults)
+        setFilteredOffers(filteredResults);
+    },[filters,offers])
 
 
   return (
@@ -39,7 +50,7 @@ const Map = () => {
                 <Filter setFilters={setFilters}/>
             </div>
             <div className="offers">
-                <OffersLarge offers={offers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef} mapRef={mapRef}/>
+                <OffersLarge offers={filteredOffers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef} mapRef={mapRef}/>
             </div>
         </div>
         <div className="right-wrapper">

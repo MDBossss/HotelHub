@@ -3,6 +3,7 @@ import { Filters, OfferModel } from "../types/model";
 
 export default function applyFilters(offers:OfferModel[],filters:Filters){
     return offers.filter(offer => {
+        console.log("comparing " + offer.location + " with " + filters.location)
         if(filters.location && filters.location !== offer.location){
             return false
         }
@@ -21,5 +22,7 @@ export default function applyFilters(offers:OfferModel[],filters:Filters){
         if(filters.sleeps && filters.sleeps !== offer.people.toString()){
             return false
         }
+
+        return true;
     })
 }
