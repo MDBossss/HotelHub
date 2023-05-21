@@ -5,7 +5,7 @@ import Filter from '../../components/Filter/Filter'
 import OffersLarge from '../../components/OffersLarge/OffersLarge'
 import { Filters, OfferModel } from '../../types/model'
 import HotelMap from '../../components/HotelMap/HotelMap'
-import applyFilters from '../../utils/OfferFiltering'
+import applyAllFilters from '../../utils/OfferFiltering'
 
 const Map = () => {
 
@@ -36,7 +36,7 @@ const Map = () => {
     },[])
 
     useEffect(() => {
-        const filteredResults = applyFilters(offers,filters);
+        const filteredResults = applyAllFilters(offers,filters);
         setFilteredOffers(filteredResults);
     },[filters,offers])
 
