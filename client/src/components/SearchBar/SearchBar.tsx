@@ -5,7 +5,11 @@ import {IoIosCalendar} from "react-icons/io";
 import {DateRange,Range} from "react-date-range";
 import useClickOutside from '../../hooks/useClickOutside';
 
-const SearchBar = () => {
+interface Props{
+    showCalendar: boolean
+}
+
+const SearchBar = ({showCalendar}:Props) => {
 
     const [showDateRange,setShowDateRange] = useState<boolean>(false);
     const datePickerRef = useRef<HTMLDivElement>(null);
@@ -38,8 +42,13 @@ const SearchBar = () => {
                 <div className="location">
                     <HiOutlineLocationMarker/>
                 </div>
-                    <input type="text" placeholder='Search Destination'/>
+                    <input 
+                        type="text" 
+                        placeholder='Search Destination'
+                        style={{borderRadius: showCalendar ? "" : "32px"}}
+                    />
             </div>
+            {showCalendar && 
             <div className="dp-wrapper">
                 <div className="calendar">
                     <IoIosCalendar/>
@@ -58,6 +67,8 @@ const SearchBar = () => {
                     />
                 </div>} 
             </div>
+            }
+            
         </div>
         <button className='search-button' onClick={handleSearch}><FiSearch/></button>
     </div>

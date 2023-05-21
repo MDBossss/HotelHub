@@ -29,7 +29,7 @@ const Deals = () => {
     <div className="deals-wrapper container">
       <h1>Last Minute Deals</h1>
       <div className="bar">
-        <SearchBar/>
+        <SearchBar showCalendar={false}/>
       </div>
       <div className="filters">
           <NavLink to="/map"><button>Show on map</button></NavLink>

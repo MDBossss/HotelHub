@@ -7,7 +7,7 @@ const CoverSection = () => {
             <div className="cover ">
                 <h1 className="title">Find an apartment <br/> for your vacation</h1>
                 <p className="description">We have several thousand apartments for every taste in every corner of the globe</p>
-                <SearchBar/>
+                <SearchBar showCalendar={true}/>
             </div>
         </div>
   )
