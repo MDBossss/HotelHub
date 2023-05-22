@@ -1,7 +1,7 @@
-import { Filters, OfferModel } from "../types/model";
+import { Filters, OfferModel, SearchFilters } from "../types/model";
 
 
-export default function applyAllFilters(offers:OfferModel[],filters:Filters){
+export function applyAllFilters(offers:OfferModel[],filters:Filters){
     return offers.filter(offer => {
         if(filters.location && filters.location !== offer.location){
             return false
@@ -24,4 +24,24 @@ export default function applyAllFilters(offers:OfferModel[],filters:Filters){
 
         return true;
     })
+}
+
+export function applySearchFilters(offers:OfferModel[],searchFilters:SearchFilters){
+  return offers.filter(offer => {
+    if(searchFilters.destination && !offer.name.toLowerCase().includes(searchFilters.destination.toLowerCase()) ){
+      return false
+    }
+
+    if(searchFilters.date && searchFilters.date.startDate && searchFilters.date.endDate){
+      if(
+        (new Date(searchFilters.date.startDate)) <= (new Date(offer.dateStart)) &&
+        (new Date(searchFilters.date.endDate)) <= (new Date(offer.dateEnd))
+      ){
+        return false
+      }
+
+    }
+
+    return true
+  })
 }

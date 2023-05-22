@@ -5,7 +5,7 @@ import Filter from '../../components/Filter/Filter'
 import OffersLarge from '../../components/OffersLarge/OffersLarge'
 import { Filters, OfferModel } from '../../types/model'
 import HotelMap from '../../components/HotelMap/HotelMap'
-import applyAllFilters from '../../utils/OfferFiltering'
+import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering'
 
 const Map = () => {
 

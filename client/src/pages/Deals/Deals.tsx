@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import {BiChevronDown} from "react-icons/bi";
 import {BsSliders} from "react-icons/bs";
@@ -7,8 +7,9 @@ import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
 import { NavLink } from 'react-router-dom';
 import DropdownList from '../../components/DropdownList/DropdownList';
-import { Filters } from '../../types/model';
+import { Filters, OfferModel, SearchFilters } from '../../types/model';
 import Filter from '../../components/Filter/Filter';
+import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering';
 
 const sortOptions:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -16,20 +17,49 @@ const Deals = () => {
 
   const [sortOption,setSortOption] = useState<string>(sortOptions[0]);
   const [showList,setShowList] = useState<boolean>(false);
+
   const [filters,setFilters] = useState<Filters>({location:null,date:null,sleeps:null});
   const [showFilters,setShowFilters] = useState<boolean>(false);
+
+  const [offers,setOffers] = useState<OfferModel[]>([]);
+  const [filteredOffers,setFilteredOffers] = useState<OfferModel[]>([]);
+
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+        fetch("/offers.json")
+        .then(response => response.json())
+        .then(data => {
+            setOffers(data)
+            setFilteredOffers(data)
+        })
+    }
+    fetchData();
+  },[])
+
+  useEffect(() => {
+    const filteredResults = applyAllFilters(offers,filters);
+    setFilteredOffers(filteredResults);
+  },[filters,offers])
 
   const handleSort = (sortOption:string) => {
     setSortOption(sortOption);
     setShowList(false);
   }
 
+  const handleSearch = (searchFilters:SearchFilters) => {
+    const filteredResults = applySearchFilters(offers,searchFilters);
+    setFilteredOffers(filteredResults);
+  }
+
+
   return (
     <>
     <div className="deals-wrapper container">
       <h1>Last Minute Deals</h1>
       <div className="bar">
-        <SearchBar showCalendar={false}/>
+        <SearchBar showCalendar={false} handleSearch={handleSearch}/>
       </div>
       <div className="filters">
           <NavLink to="/map"><button>Show on map</button></NavLink>
@@ -49,7 +79,7 @@ const Deals = () => {
           </div>
         </div>
         {showFilters && <Filter setFilters={setFilters}/>}
-        <Offers filters={filters}/>
+        <Offers offers={filteredOffers}/>
     </div>
     <Footer 
       section1={<h3>Don't forget to use our free promo code <br/> at the checkout! </h3>}

@@ -4,15 +4,19 @@ import { HiOutlineLocationMarker} from 'react-icons/hi';
 import {IoIosCalendar} from "react-icons/io";
 import {DateRange,Range} from "react-date-range";
 import useClickOutside from '../../hooks/useClickOutside';
+import { SearchFilters } from '../../types/model';
 
 interface Props{
-    showCalendar: boolean
+    showCalendar: boolean,
+    handleSearch: (searchFilters:SearchFilters) => void
 }
 
-const SearchBar = ({showCalendar}:Props) => {
+const SearchBar = ({showCalendar,handleSearch}:Props) => {
 
     const [showDateRange,setShowDateRange] = useState<boolean>(false);
     const datePickerRef = useRef<HTMLDivElement>(null);
+    const [destination,setDestination] = useState<string | null>(null);
+
 
     const [dateRange,setDateRange] = useState<Range[]>([
         {
@@ -31,9 +35,23 @@ const SearchBar = ({showCalendar}:Props) => {
         setShowDateRange(false);
     })
 
-    const handleSearch = () => {
-
+    const handleKeyDown = (event:React.KeyboardEvent<HTMLInputElement>) => {
+        if(event.key ==="Enter"){
+            searchClicked();
+        }
     }
+
+    const searchClicked = () => {
+        handleSearch(
+            {
+                destination: destination, 
+                date: {
+                    startDate: dateRange[0].startDate, 
+                    endDate: dateRange[0].endDate
+                    }
+            })
+    }
+
 
   return (
     <div className="search">
@@ -46,6 +64,8 @@ const SearchBar = ({showCalendar}:Props) => {
                         type="text" 
                         placeholder='Search Destination'
                         style={{borderRadius: showCalendar ? "" : "32px"}}
+                        onChange={(e) => setDestination(e.target.value)}
+                        onKeyDown={handleKeyDown}
                     />
             </div>
             {showCalendar && 
@@ -70,7 +90,7 @@ const SearchBar = ({showCalendar}:Props) => {
             }
             
         </div>
-        <button className='search-button' onClick={handleSearch}><FiSearch/></button>
+        <button className='search-button' onClick={() => searchClicked()}><FiSearch/></button>
     </div>
   )
 }

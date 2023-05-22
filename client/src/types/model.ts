@@ -36,4 +36,9 @@ export interface Filters{
     location:string | null,
     date:{startDate: Date | undefined, endDate: Date | undefined} | null,
     sleeps:string | null,
-  }
+}
+
+export interface SearchFilters{
+    destination?: string | null,
+    date?: {startDate: Date | undefined, endDate: Date | undefined}
+}
