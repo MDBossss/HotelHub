@@ -10,6 +10,7 @@ import DropdownList from '../../components/DropdownList/DropdownList';
 import { Filters, OfferModel, SearchFilters } from '../../types/model';
 import Filter from '../../components/Filter/Filter';
 import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering';
+import { sortByDiscount, sortByNewset, sortByPriceASC, sortByPriceDESC, sortByRating, sortByRelevance } from '../../utils/OfferSorting';
 
 const sortOptions:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -42,6 +43,40 @@ const Deals = () => {
     const filteredResults = applyAllFilters(offers,filters);
     setFilteredOffers(filteredResults);
   },[filters,offers])
+
+  useEffect(() => {
+    let sortedResults;
+    switch (sortOption) {
+      case "Relevance":
+        sortedResults = sortByRelevance(offers);
+        break;
+
+      case "Newset":
+        sortedResults = sortByNewset(filteredOffers);
+        break;
+
+      case "Rating":
+        sortedResults = sortByRating(filteredOffers);
+        break;
+
+      case "Discount":
+        sortedResults = sortByDiscount(filteredOffers);
+        break;
+
+      case "Low to High":
+        sortedResults = sortByPriceASC(filteredOffers);
+        break;
+
+      case "High to Low":
+        sortedResults = sortByPriceDESC(filteredOffers);
+        break;
+    
+      default:
+        sortedResults = filteredOffers;
+        break;
+    }
+    setFilteredOffers(sortedResults)
+  },[sortOption])
 
   const handleSort = (sortOption:string) => {
     setSortOption(sortOption);
