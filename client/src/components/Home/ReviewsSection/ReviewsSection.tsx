@@ -1,5 +1,6 @@
 import React from 'react'
 import Reviews from '../../Reviews/Reviews'
+import { NavLink } from 'react-router-dom'
 
 const ReviewsSection = () => {
   return (
@@ -11,7 +12,7 @@ const ReviewsSection = () => {
         </div>
         <div className="swipe-wrapper">
             <span>Swipe for more...</span>
-            <button>More reviews</button>
+            <NavLink to={"/blog"}><button>More reviews</button></NavLink>
         </div>
 
     </div>
