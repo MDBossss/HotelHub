@@ -5,7 +5,7 @@ import {BsSliders} from "react-icons/bs";
 import {RxCross1} from "react-icons/rx";
 import Offers from '../../components/Offers/Offers';
 import Footer from '../../components/Footer/Footer';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import DropdownList from '../../components/DropdownList/DropdownList';
 import { Filters, OfferModel, SearchFilters } from '../../types/model';
 import Filter from '../../components/Filter/Filter';
@@ -15,6 +15,8 @@ import { sortByDiscount, sortByNewset, sortByPriceASC, sortByPriceDESC, sortByRa
 const sortOptions:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
 const Deals = () => {
+  const location = useLocation();
+  const navigationSearchFilters = location.state;
 
   const [sortOption,setSortOption] = useState<string>(sortOptions[0]);
   const [showList,setShowList] = useState<boolean>(false);
@@ -38,6 +40,7 @@ const Deals = () => {
     }
     fetchData();
   },[])
+
 
   useEffect(() => {
     const filteredResults = applyAllFilters(offers,filters);
@@ -77,6 +80,12 @@ const Deals = () => {
     }
     setFilteredOffers(sortedResults)
   },[sortOption])
+
+  useEffect(() => {
+    if(navigationSearchFilters){
+      handleSearch(navigationSearchFilters)
+    }
+  },[navigationSearchFilters,offers])
 
   const handleSort = (sortOption:string) => {
     setSortOption(sortOption);
