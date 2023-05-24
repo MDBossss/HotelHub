@@ -11,6 +11,7 @@ import { Filters, OfferModel, SearchFilters } from '../../types/model';
 import Filter from '../../components/Filter/Filter';
 import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering';
 import { sortByDiscount, sortByNewset, sortByPriceASC, sortByPriceDESC, sortByRating, sortByRelevance } from '../../utils/OfferSorting';
+import NoDataMatching from '../../components/Loaders/NoDataMatching/NoDataMatching';
 
 const sortOptions:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -54,7 +55,7 @@ const Deals = () => {
         sortedResults = sortByRelevance(offers);
         break;
 
-      case "Newset":
+      case "Newest":
         sortedResults = sortByNewset(filteredOffers);
         break;
 
@@ -97,6 +98,13 @@ const Deals = () => {
     setFilteredOffers(filteredResults);
   }
 
+  const handleFilterClick = () => {
+    if(showFilters){
+      setFilters({location:null,date:null,sleeps:null})
+    }
+    setShowFilters(!showFilters)
+  }
+
 
   return (
     <>
@@ -108,7 +116,7 @@ const Deals = () => {
       <div className="filters">
           <NavLink to="/map"><button>Show on map</button></NavLink>
           <div className="right">
-            <div className="filter" onClick={() => setShowFilters(!showFilters)}>
+            <div className="filter" onClick={handleFilterClick}>
               {showFilters ? <RxCross1 className='icon'/> : <BsSliders className='icon'/>}
               <p>Filter</p>
             </div>
@@ -123,7 +131,7 @@ const Deals = () => {
           </div>
         </div>
         {showFilters && <Filter setFilters={setFilters}/>}
-        <Offers offers={filteredOffers}/>
+        {filteredOffers.length > 0 ? <Offers offers={filteredOffers}/> : <NoDataMatching/>}
     </div>
     <Footer 
       section1={<h3>Don't forget to use our free promo code <br/> at the checkout! </h3>}

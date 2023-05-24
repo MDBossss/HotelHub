@@ -13,7 +13,8 @@ export interface OfferModel{
     people: number,
     size: number
     lat: number,
-    lng: number
+    lng: number,
+    createdAt: string
 }
 
 export interface ReviewModel{

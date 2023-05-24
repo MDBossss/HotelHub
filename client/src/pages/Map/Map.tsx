@@ -6,6 +6,7 @@ import OffersLarge from '../../components/OffersLarge/OffersLarge'
 import { Filters, OfferModel } from '../../types/model'
 import HotelMap from '../../components/HotelMap/HotelMap'
 import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering'
+import NoDataMatching from '../../components/Loaders/NoDataMatching/NoDataMatching'
 
 const Map = () => {
 
@@ -48,7 +49,8 @@ const Map = () => {
                 <Filter setFilters={setFilters}/>
             </div>
             <div className="offers">
-                <OffersLarge offers={filteredOffers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef} mapRef={mapRef}/>
+                {filteredOffers.length > 0 ? 
+                <OffersLarge offers={filteredOffers} selectedOfferID={selectedOfferID} setSelectedOfferID={setSelectedOfferID} offerRef={offerRef} mapRef={mapRef}/> : <NoDataMatching/>}
             </div>
         </div>
         <div className="right-wrapper">

@@ -5,7 +5,7 @@ export function sortByRelevance(offers:OfferModel[]){
 }
 
 export function sortByNewset(offers:OfferModel[]){
-    return offers.slice().sort((a,b) => b.id - a.id);
+    return offers.slice().sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
 export function sortByRating(offers:OfferModel[]){

@@ -29,16 +29,19 @@ const PersonalInfo = ({onNext}:Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="field">
                 <label>Guest Full Name</label>
-                <input type='text' {...register("fullName", {required: true})} maxLength={50}/>
+                <input type='text' placeholder='Your Name' {...register("fullName", {required: "Full name is required"})} maxLength={50}/>
+                {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
             </div>
             <div className="row">
                 <div className="field">
                     <label>Email</label>
-                    <input type='email' {...register("email", {required: true})} maxLength={50}/>
+                    <input type='email' placeholder='example@hotel.hub' {...register("email", {required: "Email is required"})} maxLength={50}/>
+                    {errors.email && <p className='error'>{errors.email.message}</p>}
                 </div>
                 <div className="field">
                     <label>Phone Number</label>
-                    <input type='number' {...register("phoneNumber", {required: true})}/>
+                    <input type='tel' placeholder='123 345 567' {...register("phoneNumber", {required: "Phone number is required"})} maxLength={20}/>
+                    {errors.phoneNumber && <p className='error'>{errors.phoneNumber.message}</p>}
                 </div>
             </div>
             <div className="field">
