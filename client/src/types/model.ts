@@ -43,3 +43,10 @@ export interface SearchFilters{
     destination?: string | null,
     date?: {startDate: Date | undefined, endDate: Date | undefined}
 }
+
+export interface PersonalInfoInputs{
+    fullName: string,
+    email: string,
+    phoneNumber: string,
+    additionalInfo: string
+}
