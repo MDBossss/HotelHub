@@ -25,14 +25,14 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
   const onFullNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setPersonalInfo({
         ...personalInfo,
-        fullName: event.target.value
+        fullName: event.target.value 
       });
   }
 
   const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setPersonalInfo({
         ...personalInfo,
-        email: event.target.value
+        email: event.target.value 
       })
   }
 
@@ -46,7 +46,7 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
   const onAdditionalInfoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       setPersonalInfo({
         ...personalInfo,
-        additionalInfo: event.target.value
+        additionalInfo: event.target.value 
       })
   }
 
@@ -61,7 +61,7 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
             placeholder="Your Name"
             {...register("fullName", { required: "Full name is required" })}
             maxLength={50}
-            value={personalInfo?.fullName!}
+            value={personalInfo?.fullName ?? ""}
             onChange={onFullNameChange}
           />
           {errors.fullName && (
@@ -76,7 +76,7 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
               placeholder="example@hotel.hub"
               {...register("email", { required: "Email is required" })}
               maxLength={50}
-              value={personalInfo?.email!}
+              value={personalInfo?.email ?? ""}
               onChange={onEmailChange}
             />
             {errors.email && <p className="error">{errors.email.message}</p>}
@@ -90,7 +90,7 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
                 required: "Phone number is required",
               })}
               maxLength={20}
-              value={personalInfo?.phoneNumber!}
+              value={personalInfo?.phoneNumber ?? ""}
               onChange={onPhoneNumberChange!}
             />
             {errors.phoneNumber && (
@@ -106,7 +106,7 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
             {...register("additionalInfo", { required: false })}
             maxLength={200}
             rows={3}
-            value={personalInfo?.additionalInfo!}
+            value={personalInfo?.additionalInfo ?? ""}
             onChange={onAdditionalInfoChange}
           />
         </div>

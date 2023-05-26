@@ -26,7 +26,7 @@ const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
   const onCardholderNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentInfo({
         ...paymentInfo,
-        cardholderName: event.target.value
+        cardholderName: event.target.value 
     })
   }
 
@@ -40,14 +40,14 @@ const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
   const onExpiryDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentInfo({
         ...paymentInfo,
-        expiryDate: event.target.value
+        expiryDate: event.target.value 
     })
   }
 
   const onCvvChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentInfo({
         ...paymentInfo,
-        cvv: event.target.value
+        cvv: event.target.value 
     })
   }
 
@@ -64,7 +64,7 @@ const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
               required: "Cardholder name is required",
             })}
             maxLength={50}
-            value={paymentInfo?.cardholderName!}
+            value={paymentInfo?.cardholderName ?? ""}
             onChange={onCardholderNameChange}
           />
           {errors.cardholderName && (
@@ -82,7 +82,7 @@ const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
               })}
               maxLength={19}
               minLength={16}
-              value={paymentInfo?.cardNumber!}
+              value={paymentInfo?.cardNumber ?? ""}
               onChange={onCardNumberChange}
             />
             {errors.cardNumber && (
@@ -98,7 +98,7 @@ const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
                 required: "Expiry date is required",
               })}
               maxLength={5}
-              value={paymentInfo?.expiryDate!}
+              value={paymentInfo?.expiryDate ?? ""}
               onChange={onExpiryDateChange}
             />
             {errors.expiryDate && (
@@ -113,7 +113,7 @@ const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
               {...register("cvv", { required: "CVV is required" })}
               minLength={3}
               maxLength={3}
-              value={paymentInfo?.cvv!}
+              value={paymentInfo?.cvv ?? ""}
               onChange={onCvvChange}
             />
             {errors.cvv && <p className="error">{errors.cvv.message}</p>}

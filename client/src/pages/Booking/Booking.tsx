@@ -8,6 +8,7 @@ import ReservationInfo from "../../components/ReservationInfo/ReservationInfo";
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 import PaymentInfo from "../../components/PaymentInfo/PaymentInfo";
 import ReservationResult from "../../components/ReservationResult/ReservationResult";
+import { validateReservationInputs } from "../../utils/validateReservationInputs";
 
 const Booking = () => {
   const { id } = useParams();
@@ -29,13 +30,13 @@ const Booking = () => {
 
       case 3:
         //check if reservation info is full
-        if(personalInfo && personalInfo.email && personalInfo.fullName && personalInfo.phoneNumber){
+        if(personalInfo.email && personalInfo.fullName && personalInfo.phoneNumber){
           setCurrentStep(index);
         }
         break;
       case 4:
         //check if payment info is full
-        if(paymentInfo && paymentInfo.cardNumber && paymentInfo.cardholderName && paymentInfo.cvv && paymentInfo.expiryDate){
+        if(paymentInfo.cardNumber && paymentInfo.cardholderName && paymentInfo.cvv && paymentInfo.expiryDate){
           setCurrentStep(index);
         }
       default:
@@ -61,7 +62,7 @@ const Booking = () => {
       stepToRender = <PaymentInfo onNext={handleStepClick} offer={offer} setPaymentInfo={setPaymentInfo} paymentInfo={paymentInfo}/>;
       break;
     case 4:
-      stepToRender = validateInputs();
+      stepToRender = validateReservationInputs(personalInfo,paymentInfo);
       break;
   }
 
