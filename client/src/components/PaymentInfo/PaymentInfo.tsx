@@ -1,32 +1,54 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { OfferModel } from "../../types/model";
+import { OfferModel, PaymentInfoInputs } from "../../types/model";
 
-interface Inputs {
-  cardholderName: string;
-  cardNumber: string;
-  expiryDate: string;
-  cvv: string;
+
+
+interface Props { 
+  offer: OfferModel | undefined,
+  onNext: (index: number) => void,
+  setPaymentInfo: (info: PaymentInfoInputs) => void,
+  paymentInfo: PaymentInfoInputs
 }
 
-interface Props {
-  offer: OfferModel | undefined;
-}
-
-const PaymentInfo = ({ offer }: Props) => {
+const PaymentInfo = ({ onNext,offer,setPaymentInfo,paymentInfo }: Props) => {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<PaymentInfoInputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<PaymentInfoInputs> = (data) => {
+    onNext(4);
   };
 
-  const handlePayment = () => {
-    
+  const onCardholderNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPaymentInfo({
+        ...paymentInfo,
+        cardholderName: event.target.value
+    })
+  }
+
+  const onCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPaymentInfo({
+        ...paymentInfo,
+        cardNumber: event.target.value
+    })
+  }
+
+  const onExpiryDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPaymentInfo({
+        ...paymentInfo,
+        expiryDate: event.target.value
+    })
+  }
+
+  const onCvvChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPaymentInfo({
+        ...paymentInfo,
+        cvv: event.target.value
+    })
   }
 
   return (
@@ -42,6 +64,8 @@ const PaymentInfo = ({ offer }: Props) => {
               required: "Cardholder name is required",
             })}
             maxLength={50}
+            value={paymentInfo?.cardholderName!}
+            onChange={onCardholderNameChange}
           />
           {errors.cardholderName && (
             <p className="error">{errors.cardholderName.message}</p>
@@ -58,6 +82,8 @@ const PaymentInfo = ({ offer }: Props) => {
               })}
               maxLength={19}
               minLength={16}
+              value={paymentInfo?.cardNumber!}
+              onChange={onCardNumberChange}
             />
             {errors.cardNumber && (
               <p className="error">{errors.cardNumber.message}</p>
@@ -72,6 +98,8 @@ const PaymentInfo = ({ offer }: Props) => {
                 required: "Expiry date is required",
               })}
               maxLength={5}
+              value={paymentInfo?.expiryDate!}
+              onChange={onExpiryDateChange}
             />
             {errors.expiryDate && (
               <p className="error">{errors.expiryDate.message}</p>
@@ -85,6 +113,8 @@ const PaymentInfo = ({ offer }: Props) => {
               {...register("cvv", { required: "CVV is required" })}
               minLength={3}
               maxLength={3}
+              value={paymentInfo?.cvv!}
+              onChange={onCvvChange}
             />
             {errors.cvv && <p className="error">{errors.cvv.message}</p>}
           </div>
@@ -92,7 +122,6 @@ const PaymentInfo = ({ offer }: Props) => {
         <input
           type="submit"
           className="button"
-          onClick={handlePayment}
           value={`$${
             offer &&
             (offer.price + offer.price * 0.075 + offer.price * 0.071).toFixed(2)

@@ -45,8 +45,15 @@ export interface SearchFilters{
 }
 
 export interface PersonalInfoInputs{
-    fullName: string,
-    email: string,
-    phoneNumber: string,
-    additionalInfo: string
+    fullName: string | null,
+    email: string | null,
+    phoneNumber: string | null,
+    additionalInfo: string | null
+}
+
+export interface PaymentInfoInputs{
+    cardholderName: string | null;
+    cardNumber: string | null;
+    expiryDate: string | null;
+    cvv: string | null;
 }

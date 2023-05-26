@@ -4,10 +4,11 @@ import { PersonalInfoInputs } from "../../types/model";
 
 interface Props {
   onNext: (number: number) => void;
-  setPersonalInfo: (info: PersonalInfoInputs) => void;
+  setPersonalInfo: (info: PersonalInfoInputs) => void,
+  personalInfo: PersonalInfoInputs
 }
 
-const PersonalInfo = ({ onNext, setPersonalInfo }: Props) => {
+const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
   //TODO: if user registered, fetch data and fill in the inputs from global login store
 
   const {
@@ -18,10 +19,36 @@ const PersonalInfo = ({ onNext, setPersonalInfo }: Props) => {
   } = useForm<PersonalInfoInputs>();
 
   const onSubmit: SubmitHandler<PersonalInfoInputs> = (data) => {
-    // console.log(data)
-    setPersonalInfo(data);
     onNext(3);
   };
+
+  const onFullNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setPersonalInfo({
+        ...personalInfo,
+        fullName: event.target.value
+      });
+  }
+
+  const onEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setPersonalInfo({
+        ...personalInfo,
+        email: event.target.value
+      })
+  }
+
+  const onPhoneNumberChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setPersonalInfo({
+        ...personalInfo,
+        phoneNumber: event.target.value
+      })
+  }
+
+  const onAdditionalInfoChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setPersonalInfo({
+        ...personalInfo,
+        additionalInfo: event.target.value
+      })
+  }
 
   return (
     <div className="personal-info">
@@ -34,6 +61,8 @@ const PersonalInfo = ({ onNext, setPersonalInfo }: Props) => {
             placeholder="Your Name"
             {...register("fullName", { required: "Full name is required" })}
             maxLength={50}
+            value={personalInfo?.fullName!}
+            onChange={onFullNameChange}
           />
           {errors.fullName && (
             <p className="error">{errors.fullName.message}</p>
@@ -47,6 +76,8 @@ const PersonalInfo = ({ onNext, setPersonalInfo }: Props) => {
               placeholder="example@hotel.hub"
               {...register("email", { required: "Email is required" })}
               maxLength={50}
+              value={personalInfo?.email!}
+              onChange={onEmailChange}
             />
             {errors.email && <p className="error">{errors.email.message}</p>}
           </div>
@@ -59,6 +90,8 @@ const PersonalInfo = ({ onNext, setPersonalInfo }: Props) => {
                 required: "Phone number is required",
               })}
               maxLength={20}
+              value={personalInfo?.phoneNumber!}
+              onChange={onPhoneNumberChange!}
             />
             {errors.phoneNumber && (
               <p className="error">{errors.phoneNumber.message}</p>
@@ -73,6 +106,8 @@ const PersonalInfo = ({ onNext, setPersonalInfo }: Props) => {
             {...register("additionalInfo", { required: false })}
             maxLength={200}
             rows={3}
+            value={personalInfo?.additionalInfo!}
+            onChange={onAdditionalInfoChange}
           />
         </div>
         <input type="submit" className="button" value="Next Step" />
