@@ -21,7 +21,7 @@ const Offer = ({offer} :Props) => {
   return (
     <div className="offer">
         <div className="top">
-            <NavLink to={`/deals/${offer.id}`}><img src={offer.images[0]} alt="main" /></NavLink>
+            <NavLink to={`/deals/${offer.id}`}><img src={offer.images[0]} alt="main"/></NavLink>
             <div className="rating">
                 <AiFillStar className='icon'/>
                 <p>{offer.rating}</p>
