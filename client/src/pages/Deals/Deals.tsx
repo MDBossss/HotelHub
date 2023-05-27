@@ -32,7 +32,7 @@ const Deals = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-        fetch("/offers.json")
+        fetch(import.meta.env.VITE_API_BASE_URL + "/api/offers")
         .then(response => response.json())
         .then(data => {
             setOffers(data)
