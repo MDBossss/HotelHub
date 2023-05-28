@@ -10,7 +10,7 @@ const SpecialOfferSection = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      fetch(import.meta.env.VITE_API_BASE_URL + "/api/offers")
+      fetch(import.meta.env.VITE_API_BASE_URL + "api/offers")
       .then(response => response.json())
       .then(data => setOffers(data))
     }
