@@ -8,7 +8,7 @@ const Blog = () => {
   const [reviewData,setReviewData] = useState<ReviewModel[]>([]);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_BASE_URL + "api/reviews")
+    fetch(import.meta.env.VITE_API_BASE_URL + "/api/reviews")
     .then(response => response.json())
     .then(data => setReviewData(data))
   },[])
