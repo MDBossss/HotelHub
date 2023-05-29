@@ -7,6 +7,8 @@ import { Filters, OfferModel } from '../../types/model'
 import HotelMap from '../../components/HotelMap/HotelMap'
 import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering'
 import NoDataMatching from '../../components/Loaders/NoDataMatching/NoDataMatching'
+import { useQuery } from '@tanstack/react-query'
+import { fetchOffers } from '../../utils/fetchOffers'
 
 const Map = () => {
 
@@ -24,17 +26,14 @@ const Map = () => {
         }
     },[selectedOfferID])
 
-    useEffect(() => {
-        const fetchData = async () => {
-            fetch(import.meta.env.VITE_API_BASE_URL + "/api/offers")
-            .then(response => response.json())
-            .then(data => {
-                setOffers(data)
-                setFilteredOffers(data)
-            })
+    useQuery({
+        queryKey: ["offers"],
+        queryFn: fetchOffers,
+        onSuccess: (data) => {
+            setOffers(data);
+            setFilteredOffers(data);
         }
-        fetchData();
-    },[])
+    })
 
     useEffect(() => {
         const filteredResults = applyAllFilters(offers,filters);

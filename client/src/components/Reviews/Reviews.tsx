@@ -5,6 +5,8 @@ import Review from '../Review/Review'
 import {motion,AnimatePresence} from "framer-motion";
 import {wrap} from "popmotion";
 import { groupReviews, singleReviews } from '../../utils/GroupReviews';
+import { useQuery } from '@tanstack/react-query';
+import { fetchReviews } from '../../utils/fetchReviews';
     
     const variants = {
         enter: (direction: number) => {
@@ -39,11 +41,11 @@ const Reviews = () => {
     const [reviews,setReviews] = useState<ReviewModel[] | JSX.Element[]>([]) //jsx which will be shown in the slider (1 or 3 elements)
     const [[page,direction],setPage] = useState([0,0]);
 
-    useEffect(() => {
-        fetch(import.meta.env.VITE_API_BASE_URL + "/api/reviews")
-        .then(response => response.json())
-        .then(data => setReviewData(data))
-    },[])
+    useQuery({
+        queryKey: ["reviews"],
+        queryFn: fetchReviews,
+        onSuccess: setReviewData
+    })
 
     useEffect(() => {
         const handleResize = () => {
