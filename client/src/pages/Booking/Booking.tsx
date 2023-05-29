@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOfferByID } from "../../utils/FetchJsonFile";
 import { OfferModel, PaymentInfoInputs, PersonalInfoInputs } from "../../types/model";
 import Stepper from "../../components/Stepper/Stepper";
 import Footer from "../../components/Footer/Footer";
@@ -9,6 +8,8 @@ import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 import PaymentInfo from "../../components/PaymentInfo/PaymentInfo";
 import ReservationResult from "../../components/ReservationResult/ReservationResult";
 import { validateReservationInputs } from "../../utils/validateReservationInputs";
+import { useQuery } from "@tanstack/react-query";
+import { fetchOfferByID } from "../../utils/fetchOffers";
 
 const Booking = () => {
   const { id } = useParams();
@@ -17,13 +18,12 @@ const Booking = () => {
   const [personalInfo,setPersonalInfo] = useState<PersonalInfoInputs>({fullName: null ,email:null, phoneNumber:null ,additionalInfo:null});
   const [paymentInfo,setPaymentInfo] = useState<PaymentInfoInputs>({cardholderName: null, cardNumber:null, expiryDate:null ,cvv:null});
 
-  useEffect(() => {
-    if (id !== undefined) {
-      getOfferByID(parseInt(id)).then((offer) => {
-        setOffer(offer);
-      });
-    }
-  }, [id]);
+
+  useQuery({
+    queryKey: ["offers"],
+    queryFn: () => fetchOfferByID(parseInt(id!)),
+    onSuccess: setOffer
+  })
 
   const handleStepClick = (index: number) => {
     switch(index){
@@ -45,9 +45,6 @@ const Booking = () => {
     }
   };
 
-  const validateInputs = () => {
-    return <ReservationResult type="fail"/>
-  }
 
   let stepToRender;
 
