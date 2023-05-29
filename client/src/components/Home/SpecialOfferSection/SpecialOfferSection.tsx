@@ -19,19 +19,19 @@ const SpecialOfferSection = () => {
 
   return (
     <div className="special-offer-wrapper container" id='Special Offers'>
-    <div className="special-offer">
-        <h1>Special offers</h1>
-        <div className="items">
-          {offers.length !== 0 ? <>
-          <Offer offer={offers?.[0]}/>
-          <Offer offer={offers?.[1]}/>
-          <Offer offer={offers?.[2]}/> </>
-          : null  
-          }
-            
-        </div>
+      <div className="special-offer">
+          <h1>Special offers</h1>
+          <div className="items">
+            {offers.length !== 0 ? <>
+            <Offer offer={offers?.[0]}/>
+            <Offer offer={offers?.[1]}/>
+            <Offer offer={offers?.[2]}/> </>
+            : null  
+            }
+              
+          </div>
+      </div>
     </div>
-</div>
   )
 }
 
