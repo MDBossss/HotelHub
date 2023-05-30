@@ -1,5 +1,5 @@
 # HotelHub
-This project was made with focus on the frontend and polishing my knowledge on frontend design and technologies. The plan is to keep expanding the project with time so most likely not finished.
+This project was made with **focus on the frontend** and polishing my knowledge on frontend design and technologies. The plan is to keep expanding the project with time, so most likely not finished.
 Technologies:
 * React + Vite
 * SASS
