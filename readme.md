@@ -1,5 +1,6 @@
 # HotelHub
 HotelHub is a project **focused on frontend** development, aimed at expanding my knowledge of frontend design and technologies. While the project is currently a work in progress, the intention is to continue expanding and refining it over time. The backend serves as a basic demonstration of utilizing a REST API connected with Supabase, primarily for learning purposes. There is ample room for future upgrades and improvements.
+![Project Preview](https://imgur.com/a/CbFCnVG)
 
 ## Technologies
 
