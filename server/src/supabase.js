@@ -82,3 +82,17 @@ export const fetchReviews = async () => {
 
   return data;
 };
+
+/**
+ * Fetches all recents from supabase
+ * @returns JSON recents data
+ */
+export const fetchRecents = async () => {
+  const {data,error} = await supabase.from("recents").select("*");
+
+  if(error){
+    throw new Error("Error fetching table data");
+  }
+
+  return data;
+}

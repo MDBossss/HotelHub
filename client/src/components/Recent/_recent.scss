@@ -4,11 +4,13 @@
     display: flex;
     flex-direction: column;
     gap:25px;
+    flex:1;
 
     .top{
         img{
             width: 100%;
             border-radius: 15px;
+            max-height: 240px;
         }
     }
 
