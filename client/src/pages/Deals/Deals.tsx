@@ -12,6 +12,9 @@ import Filter from '../../components/Filter/Filter';
 import {applyAllFilters,applySearchFilters} from '../../utils/OfferFiltering';
 import { sortByDiscount, sortByNewset, sortByPriceASC, sortByPriceDESC, sortByRating, sortByRelevance } from '../../utils/OfferSorting';
 import NoDataMatching from '../../components/Loaders/NoDataMatching/NoDataMatching';
+import { fetchOffers } from '../../utils/fetchOffers';
+import { useQuery } from '@tanstack/react-query';
+
 
 const sortOptions:string[] = ["Relevance","Newest","Rating","Discount","Low to High","High to Low"];
 
@@ -28,19 +31,15 @@ const Deals = () => {
   const [offers,setOffers] = useState<OfferModel[]>([]);
   const [filteredOffers,setFilteredOffers] = useState<OfferModel[]>([]);
 
-  
-
-  useEffect(() => {
-    const fetchData = async () => {
-        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/offers`)
-        .then(response => response.json())
-        .then(data => {
-            setOffers(data)
-            setFilteredOffers(data)
-        })
+  useQuery({
+    queryKey: ["offers"],
+    queryFn: fetchOffers,
+    onSuccess: (data) => {
+      setOffers(data);
+      setFilteredOffers(data);
     }
-    fetchData();
-  },[])
+  })
+
 
 
   useEffect(() => {
