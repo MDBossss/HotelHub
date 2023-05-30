@@ -62,7 +62,7 @@ To het started with HotelHub, follow these steps:
 1. Clone the repository
 2. Install the dependencies for both the server and the client by running `yarn install` in their respective directories.
 3. Configure the environmental variables as described in the previous section.
-4. Start the server by running `yarn start` in the server directory.
+4. Start the server by running `yarn run start` in the server directory.
 5. Start the client by running `yarn run dev` in the client directory.
 
 ## Contributing
