@@ -4,7 +4,7 @@
     <img src="/images/favicon.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">HotelHub</h3>
+  <h1 align="center">HotelHub</h1>
 
   <p align="center">
     A modern hotel reservation app built with React + Vite, TypeScript, SASS, Node.js, Express, and Supabase.
