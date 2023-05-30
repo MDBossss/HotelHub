@@ -1,5 +1,38 @@
-# HotelHub
-HotelHub is a project **focused on frontend** development, aimed at expanding my knowledge of frontend design and technologies. While the project is currently a work in progress, the intention is to continue expanding and refining it over time. The backend serves as a basic demonstration of utilizing a REST API connected with Supabase, primarily for learning purposes. There is ample room for future upgrades and improvements.
+<br/>
+<p align="center">
+  <a href="https://github.com/MDBossss/HotelHub">
+    <img src="/images/favicon.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">HotelHub</h3>
+
+  <p align="center">
+    A modern hotel reservation app built with React + Vite, TypeScript, SASS, Node.js, Express, and Supabase.
+    <br/>
+    <br/>
+    <a href="https://github.com/MDBossss/HotelHub">View Demo</a>
+    .
+    <a href="https://github.com/MDBossss/HotelHub/issues">Report Bug</a>
+    .
+    <a href="https://github.com/MDBossss/HotelHub/issues">Request Feature</a>
+  </p>
+</p>
+
+![Downloads](https://img.shields.io/github/downloads/MDBossss/HotelHub/total) ![Contributors](https://img.shields.io/github/contributors/MDBossss/HotelHub?color=dark-green) ![Stargazers](https://img.shields.io/github/stars/MDBossss/HotelHub?style=social) ![Issues](https://img.shields.io/github/issues/MDBossss/HotelHub) ![License](https://img.shields.io/github/license/MDBossss/HotelHub) 
+
+## Table Of Contents
+
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
 
 ---
 
