@@ -1,3 +1,8 @@
+# About the project
+This project was made with focus on the frontend and polishing my knowledge on frontend design and technologies. The plan is to keep expanding the project with time so most likely not finished.
+
+Backend is basic a demonstration of using the REST api for learning purposes.
+
 # Setting up environmental variables
 
 To run the project you will need to create .env files inside both server and client directory and edit the variables as specified.
