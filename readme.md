@@ -3,7 +3,7 @@ HotelHub is a project **focused on frontend** development, aimed at expanding my
 
 ---
 
-![Project Preview](https://i.imgur.com/NGpjkRL.png)
+![Project Preview](/images/showcase.png)
 
 ## Technologies
 
