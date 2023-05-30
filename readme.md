@@ -20,19 +20,6 @@
 
 ![Downloads](https://img.shields.io/github/downloads/MDBossss/HotelHub/total) ![Contributors](https://img.shields.io/github/contributors/MDBossss/HotelHub?color=dark-green) ![Stargazers](https://img.shields.io/github/stars/MDBossss/HotelHub?style=social) ![Issues](https://img.shields.io/github/issues/MDBossss/HotelHub) ![License](https://img.shields.io/github/license/MDBossss/HotelHub) 
 
-## Table Of Contents
-
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
-* [License](#license)
-* [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ---
 
