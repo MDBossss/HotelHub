@@ -10,7 +10,7 @@
     A modern hotel reservation app built with React + Vite, TypeScript, SASS, Node.js, Express, and Supabase.
     <br/>
     <br/>
-    <a href="hotel-hub-client.vercel.app/">View Demo</a>
+    <a href="https://hotel-hub-client.vercel.app/">View Demo</a>
     .
     <a href="https://github.com/MDBossss/HotelHub/issues">Report Bug</a>
     .
