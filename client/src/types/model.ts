@@ -58,3 +58,10 @@ export interface PaymentInfoInputs{
     expiryDate: string | null;
     cvv: string | null;
 }
+
+export interface User{
+    username: string,
+    firstName: string,
+    lastName: string,
+    address: string
+}

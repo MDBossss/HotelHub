@@ -23,7 +23,8 @@
     "react-router-dom": "^6.9.0",
     "react-step-progress-bar": "^1.0.3",
     "sass": "^1.60.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "zustand": "^4.3.8"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.29.9",
