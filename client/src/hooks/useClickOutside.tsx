@@ -13,10 +13,10 @@ const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => void) => {
             }
           };
       
-          document.addEventListener('click', handleClickOutside);
+          document.addEventListener('mousedown', handleClickOutside);
       
           return () => {
-            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
           };
     },[ref,callback])
 }
