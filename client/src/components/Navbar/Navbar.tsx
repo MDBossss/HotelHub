@@ -10,6 +10,7 @@ import { useAuthStore } from "../../store/authStore";
 import { User } from "../../types/model";
 import LoginModal from "../Auth/LoginModal/LoginModal";
 import RegisterModal from "../Auth/RegisterModal/RegisterModal";
+import { ToastContainer, toast } from 'react-toastify';
 
 const variants = {
 	initial: { opacity: 0, height: 0 },
@@ -30,6 +31,7 @@ const Navbar = () => {
 	const [showProfileDropdown, setShowProfileDropdown] = useState<boolean>(false);
 	const [showLogin, setShowLogin] = useState<boolean>(true);
 	const { user, login, logout } = useAuthStore();
+	
 
 	const handleProfileClick = () => {
 		if (!user) {
@@ -38,6 +40,17 @@ const Navbar = () => {
 			setShowProfileDropdown(true);
 		}
 	};
+
+	const triggerToast = (errorType:string,text:string) => {
+		switch(errorType){
+			case "error":
+				toast.error(text)
+				return
+			case "success":
+				toast.success(text)
+				return
+		}
+	}
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -51,10 +64,13 @@ const Navbar = () => {
 
 	return (
 		<>
+			<ToastContainer/>
 			{showAuthModal && (
 				<div className="auth-wrapper">
 					{showLogin ? (
-						<LoginModal setShowAuthModal={setShowAuthModal} setShowLogin={setShowLogin} />
+						<LoginModal setShowAuthModal={setShowAuthModal} setShowLogin={setShowLogin} 
+						triggerToast={triggerToast}
+						/>
 					) : (
 						<RegisterModal setShowAuthModal={setShowAuthModal} setShowLogin={setShowLogin} />
 					)}
