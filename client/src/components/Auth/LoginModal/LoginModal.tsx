@@ -24,7 +24,7 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 		formState: { errors },
 	} = useForm<LoginInputs>();
 
-	const mutation = useMutation({
+	const passwordLoginMutation = useMutation({
 		mutationFn: (data:LoginInputs) => {
 			return loginWithPassword(data.emailAddress,data.password);
 		},
@@ -41,7 +41,7 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 
 
 	const onSubmit: SubmitHandler<LoginInputs> =  async (data) => {
-		const user = await mutation.mutateAsync(data);
+		const user = await passwordLoginMutation.mutateAsync(data);
 		console.log('User signed in successfully:', user);
 		triggerToast("success","Successfully logged in!");
 		setShowAuthModal(false);
