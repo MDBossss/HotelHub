@@ -5,32 +5,46 @@ import Separator from "../../ui/Separator/Separator";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { LoginInputs } from "../../../types/model";
+import { useMutation } from "@tanstack/react-query";
+import { loginWithPassword } from "../../../utils/auth";
 
 interface Props {
 	setShowAuthModal: (value: boolean) => void;
 	setShowLogin: (value: boolean) => void;
+	triggerToast: (errorType:string,text:string) => void
+
 }
 
-const LoginModal = ({ setShowAuthModal, setShowLogin }: Props) => {
+const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
 
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<LoginInputs>();
+
+	const mutation = useMutation({
+		mutationFn: (data:LoginInputs) => {
+			return loginWithPassword(data.emailAddress,data.password);
+		},
+		onError: (error) => {
+			console.error("Error signing in", error);
+			triggerToast("error","Invalid credentials!")
+		}
+	})
+
 
 	useClickOutside(ref, () => {
 		setShowAuthModal(false);
 	});
 
-	const handleLogin = async (data:LoginInputs) => {
-		
-	}
 
-	const onSubmit: SubmitHandler<LoginInputs> = (data) => {
-		//process the valid login data
+	const onSubmit: SubmitHandler<LoginInputs> =  async (data) => {
+		const user = await mutation.mutateAsync(data);
+		console.log('User signed in successfully:', user);
+		triggerToast("success","Successfully logged in!");
+		setShowAuthModal(false);
 	};
 
 	return (

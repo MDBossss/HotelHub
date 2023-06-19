@@ -6,6 +6,13 @@ const supabaseUrl = "https://gdtlghynuqxsnhryfsre.supabase.co";
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+
+export const loginWithPassword = async (credentials) => {
+  const {data,error} = await supabase.auth.signInWithPassword(credentials);
+  const user = data.user
+  return {user,error}
+}
+
 /**
  * Fetches all offers from supabase
  * @returns Offers array
