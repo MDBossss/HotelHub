@@ -54,17 +54,8 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 				<h3>Welcome back</h3>
 				<p>Please enter your details to sign in.</p>
 			</div>
-			<div className="auth-options">
-				<div className="item">
-					<FcGoogle />
-				</div>
-				<div className="item">
-					<FaGithub />
-				</div>
-			</div>
-			<div className="separator-wrapper">
-				<Separator text="OR" />
-			</div>
+
+
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="field">
 					<label>E-Mail Address</label>
