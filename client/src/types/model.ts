@@ -65,3 +65,9 @@ export interface User{
     lastName: string,
     address: string
 }
+
+export interface LoginInputs{
+    emailAddress: string,
+    password:string,
+    rememberMe: boolean
+}

@@ -1,17 +1,16 @@
 import React from 'react'
 
 interface Props{
-    textColor?: string,
-    lineColor?: string,
+    color?:string,
     fontSize?: string,
     text?: string
 }
 
-const Separator = ({textColor,lineColor,fontSize,text}:Props) => {
+const Separator = ({color,fontSize,text}:Props) => {
   return (
     <div className="separator">
-        {text && <p style={{color:textColor,fontSize:fontSize}}>{text}</p>}
-        <div className="line" style={{backgroundColor:lineColor}}></div>
+        {text && <p style={{color:color,fontSize:fontSize}}>{text}</p>}
+        <div className="line" style={{backgroundColor:color}}></div>
     </div>
   )
 }
