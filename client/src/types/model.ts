@@ -60,14 +60,21 @@ export interface PaymentInfoInputs{
 }
 
 export interface User{
-    username: string,
-    firstName: string,
-    lastName: string,
-    address: string
+    id: string,
+    emailAddress: string,
+    fullName: string,
+    phoneNumber: string
 }
 
 export interface LoginInputs{
     emailAddress: string,
     password:string,
-    rememberMe: boolean
+    rememberMe: boolean,
+}
+
+export interface RegisterInputs{
+    emailAddress:string,
+    password:string,
+    fullName:string,
+    phoneNumber:string
 }

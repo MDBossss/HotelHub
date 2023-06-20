@@ -1,0 +1,39 @@
+.profile-dropdown {
+	font-size: 14px;
+    position:absolute;
+    z-index: 10;
+    background-color: #fff;
+    width:200px;
+    border-radius: 6px;
+    border:1px solid #ebebeb;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    right:50px;
+    top:55px;
+
+	h4 {
+		font-weight: 600;
+        padding: 10px 12px;
+        border-bottom: 1px solid #ebebeb;
+	}
+
+    ul{
+        list-style: none;
+
+
+
+        li{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #ebebeb;
+            }
+            .icon{
+                font-size: 16px;
+            }
+        }
+    }
+}

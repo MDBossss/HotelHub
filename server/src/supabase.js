@@ -13,6 +13,16 @@ export const loginWithPassword = async (credentials) => {
   return {user,error}
 }
 
+
+export const signUpWithPassword = async (credentials) => {
+  const email = credentials.email;
+  const password = credentials.password;
+  const {data,error} = await supabase.auth.signUp({
+    email,password
+  })
+  return {data,error}
+}
+
 /**
  * Fetches all offers from supabase
  * @returns Offers array

@@ -5,6 +5,7 @@ import offerRouter from "./routes/offers.js";
 import reviewRouter from "./routes/reviews.js";
 import recentRouter from "./routes/recents.js";
 import loginRouter from "./routes/login.js";
+import registerRouter from "./routes/register.js";
 
 config();
 const app = express();
@@ -18,6 +19,8 @@ app.use("/api/reviews", reviewRouter);
 app.use("/api/recents",recentRouter);
 
 app.use("/api/login",loginRouter);
+
+app.use("/api/register",registerRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);

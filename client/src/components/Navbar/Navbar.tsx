@@ -7,22 +7,15 @@ import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuthStore } from "../../store/authStore";
-import { User } from "../../types/model";
 import LoginModal from "../Auth/LoginModal/LoginModal";
 import RegisterModal from "../Auth/RegisterModal/RegisterModal";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
 
 const variants = {
 	initial: { opacity: 0, height: 0 },
 	animate: { opacity: 1, height: 300 },
 	exit: { opacity: 0, height: 0, padding: 0 },
-};
-
-const tempUser: User = {
-	username: "thejoe",
-	firstName: "Joe",
-	lastName: "Hillman",
-	address: "London Street",
 };
 
 const Navbar = () => {
@@ -31,7 +24,6 @@ const Navbar = () => {
 	const [showProfileDropdown, setShowProfileDropdown] = useState<boolean>(false);
 	const [showLogin, setShowLogin] = useState<boolean>(true);
 	const { user, login, logout } = useAuthStore();
-	
 
 	const handleProfileClick = () => {
 		if (!user) {
@@ -41,16 +33,16 @@ const Navbar = () => {
 		}
 	};
 
-	const triggerToast = (errorType:string,text:string) => {
-		switch(errorType){
+	const triggerToast = (errorType: string, text: string) => {
+		switch (errorType) {
 			case "error":
-				toast.error(text)
-				return
+				toast.error(text);
+				return;
 			case "success":
-				toast.success(text)
-				return
+				toast.success(text);
+				return;
 		}
-	}
+	};
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -64,17 +56,29 @@ const Navbar = () => {
 
 	return (
 		<>
-			<ToastContainer/>
+			<ToastContainer />
 			{showAuthModal && (
 				<div className="auth-wrapper">
 					{showLogin ? (
-						<LoginModal setShowAuthModal={setShowAuthModal} setShowLogin={setShowLogin} 
-						triggerToast={triggerToast}
+						<LoginModal
+							setShowAuthModal={setShowAuthModal}
+							setShowLogin={setShowLogin}
+							triggerToast={triggerToast}
 						/>
 					) : (
-						<RegisterModal setShowAuthModal={setShowAuthModal} setShowLogin={setShowLogin} />
+						<RegisterModal
+							setShowAuthModal={setShowAuthModal}
+							setShowLogin={setShowLogin}
+							triggerToast={triggerToast}
+						/>
 					)}
 				</div>
+			)}
+			{showProfileDropdown && (
+				<ProfileDropdown
+					setShowProfileDropdown={setShowProfileDropdown}
+					triggerToast={triggerToast}
+				/>
 			)}
 			<div className="navbar container">
 				<div className="left">
