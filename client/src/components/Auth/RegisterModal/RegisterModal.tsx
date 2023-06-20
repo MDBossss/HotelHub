@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { LoginInputs, RegisterInputs } from "../../../types/model";
+import { LoginInputs, RegisterInputs, User } from "../../../types/model";
 import { useMutation } from "@tanstack/react-query";
 import { loginWithPassword, signUpWithPassword } from "../../../utils/auth";
+import { useAuthStore } from "../../../store/authStore";
 
 interface Props {
 	setShowAuthModal: (value: boolean) => void;
@@ -13,6 +14,7 @@ interface Props {
 
 const RegisterModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
+  const { user, login, logout } = useAuthStore();
 
 	const {
 		register,
@@ -36,8 +38,16 @@ const RegisterModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) 
 
 	const onSubmit: SubmitHandler<RegisterInputs> = async (data) => {
 		const userID = await passwordSignUpMutation.mutateAsync(data);
+    const tempUser: User = {
+			id: userID,
+			emailAddress: data.emailAddress,
+			fullName: data.fullName,
+			phoneNumber: data.phoneNumber
+
+		}
+    login(tempUser);
 		console.log("User signed up successfully:", userID);
-		triggerToast("success", "Successfully signed up in!");
+		triggerToast("success", "Successfully signed up!");
 		setShowAuthModal(false);
 	};
 

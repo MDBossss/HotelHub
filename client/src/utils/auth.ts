@@ -34,6 +34,7 @@ export async function signUpWithPassword(email:string,password:string,fullName:s
       email,password,fullName,phoneNumber
     });
 
+
     const userID = response.data.data.user.id;
     return userID
   }catch(error){
