@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { PersonalInfoInputs } from "../../types/model";
+import { useAuthStore } from "../../store/authStore";
 
 interface Props {
   onNext: (number: number) => void;
@@ -10,6 +11,7 @@ interface Props {
 
 const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
   //TODO: if user registered, fetch data and fill in the inputs from global login store
+  const { user, login, logout } = useAuthStore();
 
   const {
     register,
@@ -49,6 +51,18 @@ const PersonalInfo = ({ onNext, setPersonalInfo, personalInfo }: Props) => {
         additionalInfo: event.target.value 
       })
   }
+
+  useEffect(() => {
+    if(user){
+      setPersonalInfo({
+        ...personalInfo,
+        fullName: user?.fullName,
+        email:user?.emailAddress,
+        phoneNumber:user?.phoneNumber,
+      })
+    }
+    
+  },[user])
 
   return (
     <div className="personal-info">

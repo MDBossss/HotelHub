@@ -6,32 +6,58 @@ const supabaseUrl = "https://gdtlghynuqxsnhryfsre.supabase.co";
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+export const loginWithPassword = async (credentials) => {
+	const { data, error } = await supabase.auth.signInWithPassword(credentials);
+	const user = data.user;
+	return { user, error };
+};
+
+export const signUpWithPassword = async (credentials) => {
+	const email = credentials.email;
+	const password = credentials.password;
+	const { data, error } = await supabase.auth.signUp({
+		email,
+		password,
+	});
+	return { data, error };
+};
+
+export const insertUser = async (user) => {
+	const { data, error } = await supabase.from("users").insert([user]);
+	return { data, error };
+};
+
+export const fetchUserByID = async (userID) => {
+	const { data, error } = await supabase.from("users").select("*").eq("id", userID);
+	return data[0]
+};
+
 /**
  * Fetches all offers from supabase
  * @returns Offers array
  */
 export const fetchOffers = async () => {
-  const { data, error } = await supabase.from("offers").select("*");
+	const { data, error } = await supabase.from("offers").select("*");
 
-  if (error) {
-    throw new Error("Error fetching offers");
-  }
+	if (error) {
+		throw new Error("Error fetching offers");
+	}
 
-  const result = data.map((item) => {
-    const obj = {};
-    const images = [];
-    for (const key in item) {
-      if (key.startsWith("images/")) {
-        images.push(item[key]);
-      } else {
-        obj[key] = item[key];
-      }
-    }
-    obj.images = images;
-    return obj;
-  });
+	const result = data.map((item) => {
+		const obj = {};
+		const images = [];
+		for (const key in item) {
+			if (key.startsWith("images/")) {
+				images.push(item[key]);
+			} else {
+				obj[key] = item[key];
+			}
+		}
+		obj.images = images;
+		return obj;
+	});
 
-  return result;
+	return result;
 };
 
 /**
@@ -40,33 +66,30 @@ export const fetchOffers = async () => {
  * @returns Offer with given ID
  */
 export const fetchOfferByID = async (offerID) => {
-  const { data, error } = await supabase
-    .from("offers")
-    .select("*")
-    .eq("id", offerID);
+	const { data, error } = await supabase.from("offers").select("*").eq("id", offerID);
 
-  if (error) {
-    throw new Error("Error fetching offer");
-  }
+	if (error) {
+		throw new Error("Error fetching offer");
+	}
 
-  if (data.length === 0) {
-    throw new Error("Offer not found");
-  }
+	if (data.length === 0) {
+		throw new Error("Offer not found");
+	}
 
-  const item = data[0];
-  const obj = {};
-  const images = [];
+	const item = data[0];
+	const obj = {};
+	const images = [];
 
-  for (const key in item) {
-    if (key.startsWith("images/")) {
-      images.push(item[key]);
-    } else {
-      obj[key] = item[key];
-    }
-  }
+	for (const key in item) {
+		if (key.startsWith("images/")) {
+			images.push(item[key]);
+		} else {
+			obj[key] = item[key];
+		}
+	}
 
-  obj.images = images;
-  return obj;
+	obj.images = images;
+	return obj;
 };
 
 /**
@@ -74,13 +97,13 @@ export const fetchOfferByID = async (offerID) => {
  * @returns JSON reviews data
  */
 export const fetchReviews = async () => {
-  const { data, error } = await supabase.from("reviews").select("*");
+	const { data, error } = await supabase.from("reviews").select("*");
 
-  if (error) {
-    throw new Error("Error fetching table data");
-  }
+	if (error) {
+		throw new Error("Error fetching table data");
+	}
 
-  return data;
+	return data;
 };
 
 /**
@@ -88,11 +111,11 @@ export const fetchReviews = async () => {
  * @returns JSON recents data
  */
 export const fetchRecents = async () => {
-  const {data,error} = await supabase.from("recents").select("*");
+	const { data, error } = await supabase.from("recents").select("*");
 
-  if(error){
-    throw new Error("Error fetching table data");
-  }
+	if (error) {
+		throw new Error("Error fetching table data");
+	}
 
-  return data;
-}
+	return data;
+};

@@ -35,12 +35,19 @@
 @import "../components/Loaders/NoDataMatching/noDataMatching";
 @import "../components/ReservationResult/reservationResult";
 @import "../components/Loaders/GenericLoader/genericLoader";
+@import "../components/Auth/authModal";
+@import "../components/ProfileDropdown/profileDropdown";
+
+
+//=====UI COMPONENTS=====
+@import "../components/ui/Separator/separator";
 
 
 //=====LIBRARIES=====
 @import 'react-datepicker/dist/react-datepicker';
 @import 'react-date-range/dist/styles.css'; // main style file
 @import 'react-date-range/dist/theme/default.css'; // theme css file
+@import 'react-toastify/dist/ReactToastify.css';
 
 
 //=====PAGES=====

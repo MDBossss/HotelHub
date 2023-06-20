@@ -58,3 +58,23 @@ export interface PaymentInfoInputs{
     expiryDate: string | null;
     cvv: string | null;
 }
+
+export interface User{
+    id: string,
+    emailAddress: string,
+    fullName: string,
+    phoneNumber: string
+}
+
+export interface LoginInputs{
+    emailAddress: string,
+    password:string,
+    rememberMe: boolean,
+}
+
+export interface RegisterInputs{
+    emailAddress:string,
+    password:string,
+    fullName:string,
+    phoneNumber:string
+}

@@ -1,0 +1,24 @@
+.separator{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    p{
+        background-color: #fff;
+        padding: 0px 10px;
+        z-index: 2;
+        font-size: 12px;
+        font-weight: bold;
+        color:#cacaca;
+    }
+
+    .line{
+        position:absolute;
+        background-color: #cccccc;
+        height:1px;
+        width: 100%;
+        top: 50%;
+        z-index: 1;
+    }
+}
