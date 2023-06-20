@@ -95,6 +95,14 @@
                 background-color: black;
             }
         }
+
+        small{
+            margin: auto;
+            
+            span{
+                user-select:all;
+            }
+        }
     }
     
     .no-account-message{
@@ -108,5 +116,12 @@
             color:$color-text;
             font-weight: bold;
         }
+    }
+}
+
+
+@include small-screen{
+    .auth-modal{
+        width: 90%;
     }
 }

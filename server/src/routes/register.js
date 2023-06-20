@@ -1,5 +1,5 @@
 import express from "express";
-import { signUpWithPassword } from "../supabase.js";
+import { signUpWithPassword,loginWithPassword } from "../supabase.js";
 
 const router = express.Router();
 router.use(express.json());
@@ -15,14 +15,7 @@ router.post("/",async (req,res) => {
             return res.status(400).json({error: "Failed to register"})
         }
 
-        const {user,loginError} = await loginWithPassword({email,password});
-
-        if(loginError){
-            console.error("Error signing in: ", error.message);
-            return res.status(400).json({error: "Invalid credentials"});
-        }
-
-        return res.status(200).json({user})
+        return res.status(200).json({data})
     }catch(error){
         console.error("Server error signing up: ",error.message);
         return res.status(500).json({error: "Server error"});
