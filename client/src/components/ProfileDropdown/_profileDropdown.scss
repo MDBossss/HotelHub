@@ -37,3 +37,9 @@
         }
     }
 }
+
+@include small-screen{
+    .profile-dropdown{
+        right:16px;
+    }
+}

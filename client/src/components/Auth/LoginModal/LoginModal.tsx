@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { LoginInputs, RegisterInputs, User } from "../../../types/model";
-import { useMutation } from "@tanstack/react-query";
-import { loginWithPassword } from "../../../utils/auth";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { fetchUserByID, loginWithPassword } from "../../../utils/auth";
 import { useAuthStore } from "../../../store/authStore";
 
 interface Props {
@@ -34,7 +34,6 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 		}
 	})
 
-
 	useClickOutside(ref, () => {
 		setShowAuthModal(false);
 	});
@@ -42,17 +41,15 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 
 	const onSubmit: SubmitHandler<LoginInputs> =  async (data) => {
 		const userID = await passwordLoginMutation.mutateAsync(data);
-		const tempUser: User = {
-			id: userID,
-			emailAddress: "temp@temp.com",
-			fullName: "Petar Zoranic",
-			phoneNumber: "98839392"
-
+		const user = await fetchUserByID(userID);
+		if(user){
+			login(user)
+			console.log('User signed in successfully:', user);
+			triggerToast("success","Successfully logged in!");
+			setShowAuthModal(false);
 		}
-		login(tempUser)
-		console.log('User signed in successfully:', user);
-		triggerToast("success","Successfully logged in!");
-		setShowAuthModal(false);
+
+		
 	};
 
 	return (
@@ -85,10 +82,7 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 					/>
 					{errors.password && <p className="error">{errors.password.message}</p>}
 				</div>
-				<div className="field checkbox">
-					<input type="checkbox" {...register("rememberMe")} value="rememberMe" />
-					<label>Remember me</label>
-				</div>
+				<small>email: <span>test@test.com</span> | pass: <span>test</span></small>
 				<input type="submit" className="button" value="Sign in" />
 			</form>
 			<p className="no-account-message" onClick={() => setShowLogin(false)}>

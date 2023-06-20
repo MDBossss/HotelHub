@@ -6,7 +6,6 @@ import Footer from "../../components/Footer/Footer";
 import ReservationInfo from "../../components/ReservationInfo/ReservationInfo";
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
 import PaymentInfo from "../../components/PaymentInfo/PaymentInfo";
-import ReservationResult from "../../components/ReservationResult/ReservationResult";
 import { validateReservationInputs } from "../../utils/validateReservationInputs";
 import { useQuery } from "@tanstack/react-query";
 import { fetchOfferByID } from "../../utils/fetchOffers";

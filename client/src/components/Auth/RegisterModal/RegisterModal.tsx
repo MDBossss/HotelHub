@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { LoginInputs, RegisterInputs, User } from "../../../types/model";
+import { RegisterInputs, User } from "../../../types/model";
 import { useMutation } from "@tanstack/react-query";
-import { loginWithPassword, signUpWithPassword } from "../../../utils/auth";
-import { useAuthStore } from "../../../store/authStore";
+import { addUser, loginWithPassword, signUpWithPassword } from "../../../utils/auth";
 
 interface Props {
 	setShowAuthModal: (value: boolean) => void;
@@ -14,7 +13,6 @@ interface Props {
 
 const RegisterModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
-  const { user, login, logout } = useAuthStore();
 
 	const {
 		register,
@@ -32,6 +30,15 @@ const RegisterModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) 
 		},
 	});
 
+  const addUserMutation = useMutation({
+    mutationFn: (user:User) => {
+      return addUser(user);
+    },
+    onError: (error) => {
+      console.error("Error adding user", error);
+    }
+  })
+
 	useClickOutside(ref, () => {
 		setShowAuthModal(false);
 	});
@@ -45,10 +52,10 @@ const RegisterModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) 
 			phoneNumber: data.phoneNumber
 
 		}
-    login(tempUser);
+    await addUserMutation.mutateAsync(tempUser);
 		console.log("User signed up successfully:", userID);
-		triggerToast("success", "Successfully signed up!");
-		setShowAuthModal(false);
+		triggerToast("success", "Confirm your account on email before logging in");
+		setShowLogin(true);
 	};
 
 	return (
