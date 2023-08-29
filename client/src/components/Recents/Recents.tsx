@@ -3,7 +3,7 @@ import { RecentModel } from "../../types/model";
 import Recent from "../Recent/Recent";
 import { useQuery } from "@tanstack/react-query";
 import { fetchRecents } from "../../utils/fetchRecents";
-import GenericLoader from "../Loaders/GenericLoader/GenericLoader";
+import Spinner from "../Loaders/Spinner/Spinner";
 
 const Recents = () => {
     const { data, isLoading } = useQuery({
@@ -14,7 +14,7 @@ const Recents = () => {
     return (
         <div className="recents-items">
             {isLoading ? (
-                <GenericLoader />
+                <Spinner/>
             ) : (
                 data?.map((recent) => (
                     <Recent key={recent.id} recent={recent} />

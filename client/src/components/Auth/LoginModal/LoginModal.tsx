@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { LoginInputs, RegisterInputs, User } from "../../../types/model";
+import { LoginInputs } from "../../../types/model";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { fetchUserByID, loginWithPassword } from "../../../utils/auth";
 import { useAuthStore } from "../../../store/authStore";
@@ -9,14 +9,13 @@ import { useAuthStore } from "../../../store/authStore";
 interface Props {
 	setShowAuthModal: (value: boolean) => void;
 	setShowLogin: (value: boolean) => void;
-	triggerToast: (errorType:string,text:string) => void
-
+	triggerToast: (errorType: string, text: string) => void;
 }
 
 const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
 
-	const { user, login, logout } = useAuthStore();
+	const {login} = useAuthStore();
 
 	const {
 		register,
@@ -25,31 +24,28 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 	} = useForm<LoginInputs>();
 
 	const passwordLoginMutation = useMutation({
-		mutationFn: (data:LoginInputs) => {
-			return loginWithPassword(data.emailAddress,data.password);
+		mutationFn: (data: LoginInputs) => {
+			return loginWithPassword(data.emailAddress, data.password);
 		},
 		onError: (error) => {
 			console.error("Error signing in", error);
-			triggerToast("error","Invalid credentials!")
-		}
-	})
+			triggerToast("error", "Invalid credentials!");
+		},
+	});
 
 	useClickOutside(ref, () => {
 		setShowAuthModal(false);
 	});
 
-
-	const onSubmit: SubmitHandler<LoginInputs> =  async (data) => {
+	const onSubmit: SubmitHandler<LoginInputs> = async (data) => {
 		const userID = await passwordLoginMutation.mutateAsync(data);
 		const user = await fetchUserByID(userID);
-		if(user){
-			login(user)
-			console.log('User signed in successfully:', user);
-			triggerToast("success","Successfully logged in!");
+		if (user) {
+			login(user);
+			console.log("User signed in successfully:", user);
+			triggerToast("success", "Successfully logged in!");
 			setShowAuthModal(false);
 		}
-
-		
 	};
 
 	return (
@@ -59,7 +55,6 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 				<h3>Welcome back</h3>
 				<p>Please enter your details to sign in.</p>
 			</div>
-
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="field">
@@ -82,7 +77,9 @@ const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => 
 					/>
 					{errors.password && <p className="error">{errors.password.message}</p>}
 				</div>
-				<small>email: <span>test@test.com</span> | pass: <span>test</span></small>
+				<small>
+					email: <span>test@test.com</span> | pass: <span>test</span>
+				</small>
 				<input type="submit" className="button" value="Sign in" />
 			</form>
 			<p className="no-account-message" onClick={() => setShowLogin(false)}>

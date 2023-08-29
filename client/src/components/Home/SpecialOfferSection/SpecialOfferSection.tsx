@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Offer from "../../Offer/Offer";
-import GenericLoader from "../../Loaders/GenericLoader/GenericLoader";
 import { fetchOffers } from "../../../utils/fetchOffers";
 import { OfferModel } from "../../../types/model";
+import Spinner from "../../Loaders/Spinner/Spinner";
 
 const SpecialOfferSection = () => {
   const [offers,setOffers] = useState<OfferModel[]>([])
@@ -28,7 +28,7 @@ const SpecialOfferSection = () => {
             <Offer offer={offers[2]}/>
             </>
           ) : (
-            <GenericLoader/>
+            <Spinner/>
           )}
         </div>
       </div>
