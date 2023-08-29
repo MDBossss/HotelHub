@@ -5,8 +5,8 @@ import MapMarker from '../MapMarker/MapMarker'
 
 interface Props{
     offers: OfferModel[],
-    selectedOfferID: number,
-    setSelectedOfferID: (id:number) => void,
+    selectedOfferID: string | undefined,
+    setSelectedOfferID: (id:string) => void,
     mapRef: React.MutableRefObject<google.maps.Map | undefined>
 }
 

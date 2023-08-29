@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react'
-import { OfferModel,Filters } from '../../types/model'
+import { OfferModel } from '../../types/model'
 import Offer from '../Offer/Offer';
 
 interface Props{

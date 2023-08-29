@@ -8,13 +8,14 @@ import { SearchFilters } from "../../types/model";
 
 interface Props {
 	showCalendar: boolean;
+	value?: string;
 	handleSearch: (searchFilters: SearchFilters) => void;
 }
 
-const SearchBar = ({ showCalendar, handleSearch }: Props) => {
+const SearchBar = ({ showCalendar, handleSearch, value }: Props) => {
 	const datePickerRef = useRef<HTMLDivElement>(null);
 	const [showDateRange, setShowDateRange] = useState<boolean>(false);
-	const [destination, setDestination] = useState<string | null>(null);
+	const [destination, setDestination] = useState<string>();
 
 	const [dateRange, setDateRange] = useState<Range[]>([
 		{
@@ -62,6 +63,7 @@ const SearchBar = ({ showCalendar, handleSearch }: Props) => {
 						style={{ borderRadius: showCalendar ? "" : "32px" }}
 						onChange={(e) => setDestination(e.target.value)}
 						onKeyDown={handleKeyDown}
+						defaultValue={value}
 					/>
 				</div>
 				{showCalendar && (

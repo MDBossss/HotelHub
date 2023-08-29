@@ -1,4 +1,3 @@
-import React from 'react'
 import { BiSupport } from 'react-icons/bi'
 import { GiCat } from 'react-icons/gi'
 import { MdOutlinePayments } from 'react-icons/md'

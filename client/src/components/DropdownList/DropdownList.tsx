@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface Props{
     values: string[],
     onClicked?: (value: string) => void,
@@ -7,6 +5,7 @@ interface Props{
 }
 
 const DropdownList = ({values,onClicked,className}:Props) => {
+
   return (
     <div className={`dropdown-list ${className}`}>
         {values.map((value,index) => (

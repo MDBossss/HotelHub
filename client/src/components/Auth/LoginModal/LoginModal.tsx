@@ -2,7 +2,7 @@ import { useRef } from "react";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { LoginInputs } from "../../../types/model";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { fetchUserByID, loginWithPassword } from "../../../utils/auth";
 import { useAuthStore } from "../../../store/authStore";
 
@@ -15,7 +15,7 @@ interface Props {
 const LoginModal = ({ setShowAuthModal, setShowLogin, triggerToast }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
 
-	const {login} = useAuthStore();
+	const { login } = useAuthStore();
 
 	const {
 		register,

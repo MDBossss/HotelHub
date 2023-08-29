@@ -1,4 +1,3 @@
-import React from "react";
 import { OfferModel } from "../../types/model";
 import { BsPerson } from "react-icons/bs";
 import { IoMdResize } from "react-icons/io";

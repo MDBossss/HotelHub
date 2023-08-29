@@ -12,7 +12,6 @@
 @import "../components/Reviews/reviews";
 @import "../components/Recent/recent";
 @import "../components/Recents/recents";
-@import "../components/FooterLinks/footerLinks";
 @import "../components/Footer/footer";
 @import "../components/Home/CoverSection/coverSection";
 @import "../components/Home/WhySection/whySection";
@@ -27,7 +26,6 @@
 @import "../components/OffersLarge/offersLarge";
 @import "../components/HotelMap/hotelMap";
 @import "../components/MapMarker/mapMarker";
-@import "../components/Stepper/stepper";
 @import "../components/ReservationInfo/reservationInfo";
 @import "../components/PersonalInfo/personalInfo";
 @import "../components/PaymentInfo/paymentInfo";
@@ -41,6 +39,8 @@
 
 //=====UI COMPONENTS=====
 @import "../components/ui/Separator/separator";
+@import "../components/ui/Stepper/stepper";
+
 
 
 //=====LIBRARIES=====

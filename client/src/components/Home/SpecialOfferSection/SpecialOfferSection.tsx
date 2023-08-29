@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import {useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import Offer from "../../Offer/Offer";
 import { fetchOffers } from "../../../utils/fetchOffers";
 import { OfferModel } from "../../../types/model";
@@ -13,6 +12,7 @@ const SpecialOfferSection = () => {
     queryKey: ["offers"],
     queryFn: fetchOffers,
     onSuccess: setOffers,
+    refetchOnWindowFocus: false
   })
 
 
@@ -21,7 +21,7 @@ const SpecialOfferSection = () => {
       <div className="special-offer">
         <h1>Special offers</h1>
         <div className="items">
-          {offers.length ? (
+          {offers.length >= 3 ? (
             <>
             <Offer offer={offers[0]}/>
             <Offer offer={offers[1]}/>

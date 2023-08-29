@@ -1,4 +1,3 @@
-import React from 'react'
 import { ReviewModel } from '../../types/model'
 
 interface Props{

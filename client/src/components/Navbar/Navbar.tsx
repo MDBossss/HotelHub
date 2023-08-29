@@ -74,13 +74,14 @@ const Navbar = () => {
 					)}
 				</div>
 			)}
-			{showProfileDropdown && (
-				<ProfileDropdown
-					setShowProfileDropdown={setShowProfileDropdown}
-					triggerToast={triggerToast}
-				/>
-			)}
+
 			<div className="navbar container">
+				{showProfileDropdown && (
+					<ProfileDropdown
+						setShowProfileDropdown={setShowProfileDropdown}
+						triggerToast={triggerToast}
+					/>
+				)}
 				<div className="left">
 					<div className="hamburger icon">
 						{showMobileMenu ? (

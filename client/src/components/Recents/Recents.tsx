@@ -9,6 +9,7 @@ const Recents = () => {
     const { data, isLoading } = useQuery({
         queryKey: ["recents"],
         queryFn: fetchRecents,
+        refetchOnWindowFocus: false
     });
 
     return (

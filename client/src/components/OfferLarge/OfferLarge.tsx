@@ -11,7 +11,7 @@ interface Props{
     offer: OfferModel,
     offerRef: React.MutableRefObject<HTMLDivElement | null> | null,
     mapRef: React.MutableRefObject<google.maps.Map | undefined>,
-    setSelectedOfferID: (id:number) => void
+    setSelectedOfferID: (id:string) => void
 }
 
 const OfferLarge = ({offer,offerRef,mapRef,setSelectedOfferID} :Props) => {

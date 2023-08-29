@@ -7,6 +7,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Map from "./pages/Map/Map";
 import Booking from "./pages/Booking/Booking";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -22,6 +23,11 @@ function App() {
         <Route path="/contact" element={<Contact/>}/>
         <Route path="deals/:id" element={<Booking/>}/>
       </Routes>
+      <Footer 
+      section1={<h3>Don't forget to use our free promo code <br/> at the checkout! </h3>}
+      section2={<></>}
+      section3={<></>}
+    />
     </div>
   )
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import Recents from '../../Recents/Recents'
 
 const RecentSection = () => {

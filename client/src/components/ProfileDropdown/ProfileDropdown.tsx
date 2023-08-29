@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import {RxPerson} from "react-icons/rx";
 import {FiCreditCard,FiGithub,FiLifeBuoy,FiLogOut} from "react-icons/fi";
 import useClickOutside from '../../hooks/useClickOutside';

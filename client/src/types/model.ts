@@ -1,5 +1,5 @@
 export interface OfferModel{
-    id:number,
+    id:string,
     location:string,
     name: string,
     description: string,
@@ -25,7 +25,7 @@ export interface ReviewModel{
 }
 
 export interface RecentModel{
-    id:number,
+    id:string,
     title: string,
     description: string,
     image: string,
@@ -41,7 +41,7 @@ export interface Filters{
 }
 
 export interface SearchFilters{
-    destination?: string | null,
+    destination?: string | undefined,
     date?: {startDate: Date | undefined, endDate: Date | undefined}
 }
 

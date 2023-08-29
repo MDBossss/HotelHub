@@ -1,9 +1,8 @@
-import React from 'react'
 import { OfferModel } from '../../types/model'
 
 interface Props{
     offer: OfferModel,
-    selectedOfferID: number,
+    selectedOfferID: string | undefined,
     handleMarkerClick: (offer:OfferModel) => void
 }
 
